@@ -11,7 +11,7 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Mathematics, TUD Dresden University of Technology, 2014
+* Ph.D in Mathematics, TUD Dresden University of Technology, 2024
 * M.S. in Physics, TUD Dresden University of Technology, 2018
 * B.S. in Physics, TUD Dresden University of Technology, 2014
 
