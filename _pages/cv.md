@@ -12,6 +12,9 @@ redirect_from:
 Education
 ======
 * Ph.D in Mathematics, TUD Dresden University of Technology, 2024
+  * Dissertation: Impacts of genetic and phenotypic heterogeneity on tumor evolution
+  * Supervisor: Prof. Dr. Andreas Deutsch
+  * Final grade: *summa cum laude*
 * M.S. in Physics, TUD Dresden University of Technology, 2018
 * B.S. in Physics, TUD Dresden University of Technology, 2014
 
