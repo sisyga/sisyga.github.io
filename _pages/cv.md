@@ -11,54 +11,48 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* Ph.D in Mathematics, TUD Dresden University of Technology, 2014
+* M.S. in Physics, TUD Dresden University of Technology, 2018
+* B.S. in Physics, TUD Dresden University of Technology, 2014
 
 Work experience
 ======
-* Spring 2024: Academic Pages Collaborator
-  * Github University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* Since 02/2024: Postdoctoral Research Associate, Center for Information Services and High Performance Computing (ZIH), TUD Dresden University of Technology, Dresden, Germany
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+* 2018-2024: Doctoral Research Associate, ZIH, TUD, Dresden, Germany
 
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
-Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Fall 2023: Guest Researcher, Centre de Recerca Matemàtica, Universitat Autònoma de Barcelona, Barcelona, Spain
+
+* 2016-2018: Research Assistant, ZIH, TUD, Dresden, Germany
+
+* Spring 2016: Research Assistant, Max Planck Institute for the Physics of Complex Systems (MPI-PKS), Dresden, Germany
+
+* Summer 2014: Undergraduate Assistant, MPI-PKS, Dresden, Germany
 
 Publications
 ======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
+See my [Google Scholar](https://scholar.google.com/citations?user=mDGL_cQAAAAJ&hl)
   
-Talks
+
+Teaching & Mentoring
 ======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
+* Co-supervised six student research projects, six Master’s theses, and two PhD projects.
+* * Co-organized five seminars on selected topics of Mathematical Biology, including tumor cell migration,
+cancer progression & therapy, and mathematical modeling of the COVID-19 pandemic.
+* Three-times tutor for the lecture “Mathematical Biology 1: Discrete Models”.
   
 Service and leadership
 ======
-* Currently signed in to 43 different slack teams
+* Scientific reviewer for PLOS Computational Biology, PLOS One, Scientific Reports, GigaByte, Frontiers in
+Cell and Developmental Biology, and the National Research, Development and Innovation Office, Hungary.
+* Authored a popular science book about mathematical modeling of the COVID-19 pandemic.
+* Contributing author for the Mathematical Oncology Blog, discussing the integration and application of
+mathematical and computational models to better understand and predict cancer.
+* **Memberships:** Society for Mathematical Biology (SMB), European Society for Mathematical and Theoretical
+Biology (ESMTB), German Physical Society (DPG), European Association for Cancer Research (EACR).
+
+Scholarships & Awards
+======
+* 2024: MTZ-Award for Systems Medicine
+* 2019: Poster prize of the Society for Mathematical Biology
+* 2018-2021: State Innovation Grant (PhD scholarship)
