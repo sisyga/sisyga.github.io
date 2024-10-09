@@ -1,7 +1,7 @@
 ---
-title: "Portfolio item number 1"
-excerpt: "Short description of portfolio item number 1<br/><img src='/images/500x300.png'>"
+title: "From understanding to rational design of next-generation cancer therapies"
+excerpt: ""
 collection: portfolio
 ---
 
-This is an item in your portfolio. It can be have images or nice text. If you name the file .md, it will be parsed as markdown. If you name the file .html, it will be parsed as HTML. 
+This project, funded by an ERC Advanced Grant, aims to combine immunotherapy with classical cancer therapies at ultra-low, sublethal doses to maximize efficacy. Informed by single-cell analyses and advanced statistical inference methods, we employ mathematical modeling of intracellular damage dynamics to maximize treatment efficacy. Joint with the Peter Friedl and Johannes Textor groups (both Radboud University Nijmegen, The Netherlands).
