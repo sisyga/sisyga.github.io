@@ -37,7 +37,7 @@ See my [Google Scholar](https://scholar.google.com/citations?user=mDGL_cQAAAAJ&h
 Teaching & Mentoring
 ======
 * Co-supervised six student research projects, six Master’s theses, and two PhD projects.
-* * Co-organized five seminars on selected topics of Mathematical Biology, including tumor cell migration,
+* Co-organized five seminars on selected topics of Mathematical Biology, including tumor cell migration,
 cancer progression & therapy, and mathematical modeling of the COVID-19 pandemic.
 * Three-times tutor for the lecture “Mathematical Biology 1: Discrete Models”.
   
