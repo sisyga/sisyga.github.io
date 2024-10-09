@@ -1,6 +1,6 @@
 ---
 title: "From understanding to rational design of next-generation cancer therapies"
-excerpt: ""
+excerpt: "This project aims to combine immunotherapy with classical cancer therapies at ultra-low, sublethal doses to maximize efficacy. Informed by single-cell analyses and advanced statistical inference methods, we employ mathematical modeling of intracellular damage dynamics to maximize treatment efficacy."
 collection: portfolio
 ---
 
