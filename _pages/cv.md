@@ -20,17 +20,17 @@ Education
 
 Work experience
 ======
-* Since 02/2024: Postdoctoral Research Associate, Center for Information Services and High Performance Computing (ZIH), TUD Dresden University of Technology, Dresden, Germany
+* Since 02/2024: **Postdoctoral Research Associate**, Center for Information Services and High Performance Computing (ZIH), TUD Dresden University of Technology, Dresden, Germany
 
-* 2018-2024: Doctoral Research Associate, ZIH, TUD, Dresden, Germany
+* 2018-2024: **Doctoral Research Associate**, ZIH, TUD, Dresden, Germany
 
-* Fall 2023: Guest Researcher, Centre de Recerca Matemàtica, Universitat Autònoma de Barcelona, Barcelona, Spain
+* Fall 2023: **Guest Researcher**, Centre de Recerca Matemàtica, Universitat Autònoma de Barcelona, Barcelona, Spain
 
-* 2016-2018: Research Assistant, ZIH, TUD, Dresden, Germany
+* 2016-2018: **Research Assistant**, ZIH, TUD, Dresden, Germany
 
-* Spring 2016: Research Assistant, Max Planck Institute for the Physics of Complex Systems (MPI-PKS), Dresden, Germany
+* Spring 2016: **Research Assistant**, Max Planck Institute for the Physics of Complex Systems (MPI-PKS), Dresden, Germany
 
-* Summer 2014: Undergraduate Assistant, MPI-PKS, Dresden, Germany
+* Summer 2014: **Undergraduate Assistant**, MPI-PKS, Dresden, Germany
 
 Publications
 ======
