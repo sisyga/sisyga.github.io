@@ -1,0 +1,229 @@
+/* ==========================================================================
+   MODERN ENHANCEMENTS
+   ========================================================================== */
+
+/* Page layout improvements */
+.page {
+  .page__inner-wrap {
+    padding-top: 2rem;
+  }
+}
+
+/* Enhanced page content styling */
+.page__content {
+  h1, h2, h3, h4, h5, h6 {
+    color: $neutral-800;
+    
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  
+  h1 {
+    font-size: $type-size-2;
+    font-weight: 700;
+    border-bottom: 3px solid $primary-color;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  h2 {
+    font-size: $type-size-3;
+    font-weight: 600;
+    color: $primary-color;
+    margin-top: 2rem;
+    position: relative;
+    
+    &:before {
+      content: '';
+      position: absolute;
+      left: -1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 100%;
+      background: $accent-teal;
+      border-radius: 2px;
+    }
+  }
+}
+
+/* Modern button styling */
+.btn {
+  border-radius: $border-radius;
+  font-weight: 500;
+  transition: $global-transition;
+  border: none;
+  
+  &--primary {
+    background: $primary-color;
+    color: white;
+    
+    &:hover {
+      background: $primary-blue-dark;
+      transform: translateY(-1px);
+      box-shadow: $box-shadow-md;
+    }
+  }
+  
+  &--outline {
+    background: transparent;
+    border: 2px solid $primary-color;
+    color: $primary-color;
+    
+    &:hover {
+      background: $primary-color;
+      color: white;
+    }
+  }
+}
+
+/* Enhanced links in content (but not in publication/talk lists) */
+.page__content {
+  a:not(.btn):not(.archive__item a) {
+    color: $primary-color;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: $global-transition;
+    
+    &:hover {
+      border-bottom-color: $primary-color;
+      color: $primary-blue-dark;
+    }
+  }
+}
+
+/* Simple publication download links styling */
+.archive__item {
+  a[href*=".pdf"], a[href*="doi.org"] {
+    font-size: $type-size-7;
+    color: $primary-color;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+/* Modern table styling */
+table {
+  border-radius: $border-radius;
+  overflow: hidden;
+  box-shadow: $box-shadow;
+  
+  th {
+    background: $primary-color;
+    color: white;
+    font-weight: 600;
+    padding: 1rem;
+  }
+  
+  td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid $neutral-200;
+  }
+  
+  tr:hover {
+    background: $neutral-50;
+  }
+}
+
+/* Enhanced code blocks */
+pre {
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  border: 1px solid $neutral-200;
+}
+
+/* Breadcrumb improvements */
+.breadcrumbs {
+  font-size: $type-size-7;
+  color: $neutral-500;
+  margin-bottom: 1rem;
+  
+  a {
+    color: $neutral-600;
+    text-decoration: none;
+    
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}
+
+/* Notice improvements */
+.notice {
+  border-radius: $border-radius;
+  border-left: 4px solid $info-color;
+  
+  &--primary {
+    border-left-color: $primary-color;
+  }
+  
+  &--success {
+    border-left-color: $success-color;
+  }
+  
+  &--warning {
+    border-left-color: $warning-color;
+  }
+  
+  &--danger {
+    border-left-color: $danger-color;
+  }
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .archive__item {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+  }
+  
+  .page__content {
+    h2:before {
+      display: none;
+    }
+  }
+}
+
+/* Loading animation for images */
+img {
+  transition: opacity 0.3s ease;
+  
+  &[data-src] {
+    opacity: 0;
+  }
+  
+  &.loaded {
+    opacity: 1;
+  }
+}
+
+/* Focus states for accessibility */
+*:focus {
+  outline: 2px solid $primary-color;
+  outline-offset: 2px;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Print styles */
+@media print {
+  .masthead,
+  .sidebar,
+  .page__footer {
+    display: none !important;
+  }
+  
+  .archive__item {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+}

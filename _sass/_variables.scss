@@ -21,6 +21,10 @@ $monospace                  : Monaco, Consolas, "Lucida Console", monospace;
 $sans-serif-narrow          : $sans-serif;
 $helvetica                  : Helvetica, "Helvetica Neue", Arial, sans-serif;
 
+/* Modern Google Fonts */
+$modern-sans                : "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+$accent-font                : "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
 /* serif typefaces */
 $georgia                    : Georgia, serif;
 $times                      : Times, serif;
@@ -28,8 +32,8 @@ $bodoni                     : "Bodoni MT", serif;
 $calisto                    : "Calisto MT", serif;
 $garamond                   : Garamond, serif;
 
-$global-font-family         : $sans-serif;
-$header-font-family         : $sans-serif;
+$global-font-family         : $modern-sans;
+$header-font-family         : $accent-font;
 $caption-font-family        : $serif;
 
 /* type scale */
@@ -55,24 +59,42 @@ $sidebar-link-max-width     : 250px;
    Colors
    ========================================================================== */
 
-$gray                       : #7a8288;
-$dark-gray                  : mix(#000, $gray, 40%);
-$darker-gray                : mix(#000, $gray, 60%);
-$light-gray                 : mix(#fff, $gray, 50%);
-$lighter-gray               : mix(#fff, $gray, 90%);
+/* Modern color palette */
+$primary-blue               : #2563eb;
+$primary-blue-light         : #3b82f6;
+$primary-blue-dark          : #1d4ed8;
+$accent-teal                : #0d9488;
+$accent-purple              : #7c3aed;
+$neutral-50                 : #f8fafc;
+$neutral-100                : #f1f5f9;
+$neutral-200                : #e2e8f0;
+$neutral-300                : #cbd5e1;
+$neutral-400                : #94a3b8;
+$neutral-500                : #64748b;
+$neutral-600                : #475569;
+$neutral-700                : #334155;
+$neutral-800                : #1e293b;
+$neutral-900                : #0f172a;
+
+/* Legacy color mapping */
+$gray                       : $neutral-500;
+$dark-gray                  : $neutral-700;
+$darker-gray                : $neutral-800;
+$light-gray                 : $neutral-300;
+$lighter-gray               : $neutral-100;
 
 $body-color                 : #fff;
-$background-color           : #fff;
-$code-background-color      : #fafafa;
-$code-background-color-dark : $light-gray;
-$text-color                 : $dark-gray;
-$border-color               : $lighter-gray;
+$background-color           : $neutral-50;
+$code-background-color      : $neutral-100;
+$code-background-color-dark : $neutral-200;
+$text-color                 : $neutral-800;
+$border-color               : $neutral-200;
 
-$primary-color              : #7a8288;
-$success-color              : #62c462;
-$warning-color              : #f89406;
-$danger-color               : #ee5f5b;
-$info-color                 : #52adc8;
+$primary-color              : $primary-blue;
+$success-color              : #10b981;
+$warning-color              : #f59e0b;
+$danger-color               : #ef4444;
+$info-color                 : $accent-teal;
 
 /* brands */
 $behance-color              : #1769FF;
@@ -102,11 +124,11 @@ $xing-color                 : #006567;
 
 
 /* links */
-$link-color                 : $info-color;
-$link-color-hover           : mix(#000, $link-color, 25%);
-$link-color-visited         : mix(#fff, $link-color, 25%);
-$masthead-link-color        : $primary-color;
-$masthead-link-color-hover  : mix(#000, $primary-color, 25%);
+$link-color                 : $primary-blue;
+$link-color-hover           : $primary-blue-dark;
+$link-color-visited         : $accent-purple;
+$masthead-link-color        : $neutral-700;
+$masthead-link-color-hover  : $primary-blue;
 
 
 /*
@@ -158,8 +180,11 @@ $susy: (
    Other
    ========================================================================== */
 
-$border-radius              : 4px;
-$box-shadow                 : 0 1px 1px rgba(0, 0, 0, 0.125);
+$border-radius              : 8px;
+$border-radius-lg           : 12px;
+$box-shadow                 : 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+$box-shadow-md              : 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$box-shadow-lg              : 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 $navicon-width              : 28px;
 $navicon-height             : 4px;
-$global-transition          : all 0.2s ease-in-out;
+$global-transition          : all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
