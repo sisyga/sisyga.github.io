@@ -94,15 +94,24 @@
   }
 }
 
-/* Simple publication download links styling */
-.archive__item {
-  a[href*=".pdf"], a[href*="doi.org"] {
-    font-size: $type-size-7;
-    color: $primary-color;
+/* Publication citation links styling */
+.publication-citation {
+  font-size: $type-size-6;
+  line-height: 1.6;
+  margin: 0;
+  
+  a {
+    display: block;
     text-decoration: none;
+    color: $neutral-700 !important;
+    transition: $global-transition;
+    padding: 0.5rem 0;
     
     &:hover {
-      text-decoration: underline;
+      color: $primary-color !important;
+      background: $neutral-50;
+      padding-left: 0.5rem;
+      border-left: 3px solid $primary-color;
     }
   }
 }
