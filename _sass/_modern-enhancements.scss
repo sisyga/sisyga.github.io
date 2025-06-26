@@ -94,6 +94,15 @@
   }
 }
 
+/* Remove hover effects from talk titles since they're no longer links */
+.archive__item-title {
+  cursor: default !important;
+  
+  &:hover {
+    color: inherit !important;
+  }
+}
+
 /* Publication citation links styling */
 .publication-citation {
   font-size: $type-size-6;
@@ -114,6 +123,15 @@
       border-left: 3px solid $primary-color;
     }
   }
+}
+
+/* Talk comment styling */
+.talk-comment {
+  font-size: $type-size-7;
+  color: $neutral-600;
+  font-style: italic;
+  margin: 0.5rem 0 0 0;
+  line-height: 1.4;
 }
 
 /* Modern table styling */

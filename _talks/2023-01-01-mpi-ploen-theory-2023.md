@@ -5,7 +5,5 @@ type: "Invited Talk"
 permalink: /talks/2023-01-01-mpi-ploen-theory-2023
 venue: "Theory Seminar"
 date: 2023-01-01
-location: "Plön, Germany"
+location: "Max Planck Institute for Evolutionary Biology, Plön, Germany"
 ---
-
-Max Planck Institute for Evolutionary Biology
