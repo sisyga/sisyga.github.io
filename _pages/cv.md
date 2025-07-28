@@ -46,8 +46,8 @@ Research Interests
 
 Scholarships & Awards
 ======
-* 2025: **German Thesis Award** - Shortlist (top 12 of 254), final decision pending. Körber Foundation.
-* 2025: **Reinhart Heinrich Award** - Shortlist, final decision pending. European Society for Mathematical and Theoretical Biology.
+* 2025: **German Thesis Award** - Shortlist (top 12 of 254). Körber Foundation.
+* 2025: **Reinhart Heinrich Award** - European Society for Mathematical and Theoretical Biology.
 * 2025: **Dr. Walter Seipp Prize** - Nomination, decision pending. Commerzbank Foundation.
 * 2024: **MTZ-Award for Systems Medicine** - MTZ-Foundation.
 * 2019: **Poster prize** - Society for Mathematical Biology Annual Meeting.
