@@ -1,0 +1,653 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Simon Syga — Mathematical Biologist, TU Dresden</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Personal homepage of Simon Syga — mathematical biologist and postdoctoral researcher at TU Dresden, developing agent-based and continuum models of tumor evolution, phenotypic plasticity and therapy response.">
+<link rel="canonical" href="https://sisyga.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230A0A0A'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' fill='%234FBEE6' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Simon Syga — Mathematical Biologist, TU Dresden">
+<meta property="og:description" content="Stochastic, agent-based and continuum models of tumor evolution, phenotypic plasticity and therapy response.">
+<meta property="og:url" content="https://sisyga.github.io/">
+<meta property="og:image" content="https://sisyga.github.io/assets/profile.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Simon Syga","honorificPrefix":"Dr.","jobTitle":"Postdoctoral Researcher","email":"mailto:simon.syga@tu-dresden.de","url":"https://sisyga.github.io/","image":"https://sisyga.github.io/assets/profile.png","affiliation":{"@type":"Organization","name":"Center for Interdisciplinary Digital Sciences, TU Dresden"},"alumniOf":{"@type":"CollegeOrUniversity","name":"TU Dresden"},"knowsAbout":["Mathematical biology","Mathematical oncology","Evolutionary dynamics","Agent-based modeling","Cellular automata","Phenotypic plasticity","Bayesian inference"],"sameAs":["https://scholar.google.com/citations?user=mDGL_cQAAAAJ","https://orcid.org/0000-0001-9955-9012","https://github.com/sisyga","https://bsky.app/profile/sisyga.bsky.social","https://www.linkedin.com/in/simon-syga"]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#F5F4F2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0A0B0D" media="(prefers-color-scheme: dark)">
+<script>
+document.documentElement.classList.add('js');
+(function(){
+  var saved = null;
+  try { saved = localStorage.getItem('syga-theme'); } catch(e) {}
+  var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+  if (dark) document.documentElement.setAttribute('data-theme', 'dark');
+})();
+</script>
+<style>
+:root{
+  /* light: off-white paper, accents are the two ends of the simulation's colormap (red core, blue rim) */
+  --paper:#F5F4F2;--paper-2:#EAE9E6;--ink:#161616;--ink-soft:#48484A;--muted:#66666A;
+  --line:rgba(22,22,22,.13);--line-2:rgba(22,22,22,.07);
+  --accent:#B40426;--accent-2:#3B4CC0;--accent-ink:#8A0320;--underline:rgba(180,4,38,.38);
+  --shadow:rgba(22,22,22,.38);--sim-filter:invert(1);--sim-blend:multiply;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,sans-serif;--display:"Archivo",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace;
+  --container:1180px;--gutter:clamp(22px,5vw,72px);
+}
+[data-theme="dark"]{
+  /* dark: the film's native colours, teal core and ochre rim, slightly desaturated for text */
+  --paper:#0A0B0D;--paper-2:#151619;--ink:#E9E9E9;--ink-soft:#B7B7B5;--muted:#95958F;
+  --line:rgba(233,233,233,.15);--line-2:rgba(233,233,233,.08);
+  --accent:#5EDFC5;--accent-2:#C4B33F;--accent-ink:#93EBD9;--underline:rgba(94,223,197,.4);
+  --shadow:rgba(0,0,0,.7);--sim-filter:none;--sim-blend:screen;
+}
+html{color-scheme:light}[data-theme="dark"]{color-scheme:dark}
+html,body{background:var(--paper)}
+*{box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;scroll-behavior:smooth;font-optical-sizing:auto}
+body{margin:0;color:var(--ink);font-family:var(--sans);font-weight:400;line-height:1.6;font-size:17px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.028'/%3E%3C/svg%3E")}
+[data-theme="dark"] body{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.055'/%3E%3C/svg%3E")}
+a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-decoration-color:var(--underline);text-underline-offset:3px}
+a:hover{color:var(--accent-ink);text-decoration-color:currentColor}
+.nav__links a,.nav__name,.btn,.olist__title a,.chan a,.foot__inner a,.skip{text-decoration:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+.nav__cta:focus-visible,.btn--primary:focus-visible{outline-color:var(--ink)}
+::selection{background:var(--accent);color:var(--paper)}
+.skip{position:absolute;left:-999px;top:8px;z-index:100;background:var(--ink);color:var(--paper);padding:8px 14px;border-radius:4px;font-size:14px}
+.skip:focus{left:12px}
+.wrap{max-width:var(--container);margin:0 auto;padding-inline:var(--gutter)}
+section[id],div[id],a[id]{scroll-margin-top:88px}
+p{text-wrap:pretty}
+
+/* labels */
+h3.label{font-weight:400;margin:0}
+.label{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);display:inline-flex;align-items:center;gap:10px}
+.label::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent-2);flex:none}
+.grp{display:block;margin:0 0 20px}
+.grp+.grp,.tl+.grp,.olist+.grp,.proj+.grp{margin-top:44px}
+
+/* nav */
+header.nav{position:sticky;top:0;z-index:50;background:color-mix(in oklab,var(--paper) 82%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .3s ease,background .3s ease}
+header.nav.scrolled{border-bottom-color:var(--line)}
+.nav__inner{display:flex;align-items:center;height:68px}
+.nav__name{margin-right:auto;white-space:nowrap;flex:none;font-family:var(--display);font-weight:500;font-size:22px;letter-spacing:-.01em;color:var(--ink)}
+.nav__links{order:2;display:flex;gap:22px}
+.nav__links a{font-size:14px;color:var(--ink-soft);font-weight:500;position:relative;padding:4px 0;white-space:nowrap;flex:none}
+.nav__links a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:var(--accent);transition:width .28s cubic-bezier(.4,0,.2,1)}
+.nav__links a:hover{color:var(--ink)}
+.nav__links a:hover::after{width:100%}
+.nav__links a.nav__cta{font-size:13px;font-weight:600;color:var(--paper)!important;background:var(--accent);padding:9px 18px;border-radius:100px;letter-spacing:.01em}
+.nav__cta::after{display:none}
+.nav__cta:hover{background:var(--accent-ink)}
+.theme{order:3;margin-left:20px;flex:none;width:34px;height:34px;padding:0;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;background:none;border:1px solid var(--line);border-radius:50%;transition:border-color .25s ease,transform .25s ease}
+.theme:hover{border-color:var(--ink-soft);transform:rotate(-24deg)}
+.theme svg{width:17px;height:17px}
+.theme svg circle{fill:none;stroke:var(--ink-soft);stroke-width:1.4}
+.theme svg path{fill:var(--ink-soft)}
+.nav__toggle{order:4;display:none;background:none;border:1px solid var(--line);border-radius:100px;height:40px;padding:0 16px;align-items:center;gap:9px;cursor:pointer;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.nav__toggle:hover{border-color:var(--ink-soft);color:var(--ink)}
+.nav__toggle i{display:block;width:15px;height:7px;border-top:1.5px solid currentColor;border-bottom:1.5px solid currentColor}
+@media (max-width:1040px){
+  .theme{margin-right:14px}
+  .nav__links{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;gap:0;align-items:stretch;background:var(--paper);border-bottom:1px solid var(--line);padding:6px var(--gutter) 22px;box-shadow:0 24px 40px -30px var(--shadow)}
+  .nav.open .nav__links{display:flex}
+  .nav__toggle{display:inline-flex}
+  .nav__links a{font-size:16px;padding:14px 0;border-top:1px solid var(--line-2)}
+  .nav__links a::after{display:none}
+  .nav__links a.nav__cta{margin-top:18px;border-top:none!important;align-self:flex-start;padding:13px 24px;font-size:14px}
+}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:clamp(40px,7vw,80px) 0 clamp(44px,6vw,72px)}
+.hero__grid{position:relative;display:grid;grid-template-columns:1.45fr 1fr;column-gap:clamp(32px,5vw,68px);row-gap:clamp(24px,3vw,34px);align-items:start}
+.hero__eyebrow{grid-column:1 / -1;margin-bottom:0;white-space:nowrap}
+.hero h1{font-family:var(--display);font-weight:500;font-size:clamp(46px,7.2vw,96px);line-height:.98;letter-spacing:-.035em;margin:0;color:var(--ink)}
+.hero__role{margin-top:14px;font-size:clamp(20px,2.1vw,26px);line-height:1.3;letter-spacing:-.005em;color:var(--muted)}
+.hero__q{margin:clamp(20px,2.2vw,26px) 0 0;font-size:clamp(18px,1.5vw,21px);line-height:1.5;max-width:34em}
+.hero__q b{display:block;font-family:var(--display);font-weight:500;color:var(--accent);letter-spacing:-.005em}
+.hero__sub{margin:clamp(18px,2vw,24px) 0 0;font-size:clamp(16px,1.2vw,18px);line-height:1.6;color:var(--ink);max-width:34em}
+.avail{display:inline-flex;align-items:center;gap:10px;margin-top:26px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.avail::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none}
+.hero__actions{display:flex;align-items:center;gap:22px;margin-top:34px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:600;letter-spacing:.01em;padding:13px 24px;border-radius:100px;transition:all .25s ease}
+.btn--primary{background:var(--ink);color:var(--paper)}
+.btn--primary:hover{background:var(--accent);color:var(--paper);transform:translateY(-1px)}
+.btn--ghost{color:var(--ink)}
+.btn--ghost span.u{border-bottom:1px solid currentColor;padding-bottom:2px;transition:border-color .25s,color .25s}
+.btn--ghost:hover span.u{border-color:var(--accent);color:var(--accent)}
+.portrait{position:relative;margin-top:10px}
+.portrait__frame{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:3px;background:var(--paper-2);box-shadow:0 30px 60px -34px var(--shadow)}
+.portrait__frame img{width:100%;height:100%;object-fit:cover;object-position:center 12%;filter:contrast(1.02) saturate(.96)}
+.portrait__tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:12px;display:flex;justify-content:space-between}
+.portrait::before{content:"";position:absolute;top:-12px;right:-12px;width:54px;height:54px;border-top:1.5px solid var(--ink-soft);border-right:1.5px solid var(--ink-soft);z-index:2}
+@media (max-width:960px){.hero__grid{grid-template-columns:1fr}.hero__eyebrow{white-space:normal}.portrait{max-width:340px;margin-top:0}}
+
+/* sections */
+section{padding-block:clamp(48px,5.5vw,76px)}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:clamp(28px,3vw,40px);flex-wrap:wrap}
+.sec-head h2{font-family:var(--display);font-weight:500;margin:14px 0 0;font-size:clamp(30px,4vw,46px);line-height:1.05;letter-spacing:-.025em;max-width:16em}
+.sec-head .label+h2{margin-top:14px}
+.sec-head h2:first-child{margin-top:0}
+.sec-head p{color:var(--ink-soft);max-width:30em;margin:0;font-size:16px}
+.sec-head .note{font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:var(--muted)}
+h2 i,h3 i{font-style:normal;color:var(--accent)}
+
+/* news strip */
+.news{display:grid;grid-template-columns:repeat(2,1fr);gap:0 clamp(40px,5vw,72px)}
+.news .tl__item{grid-template-columns:52px 1fr;padding:14px 0}
+.news .tl__what{font-size:17px;line-height:1.4}
+@media (max-width:720px){.news{grid-template-columns:1fr}}
+
+/* research */
+.appr{display:grid;grid-template-columns:1.02fr 1fr;gap:clamp(30px,4vw,60px);align-items:start}
+.sim{position:relative;margin:0}
+.sim__box{aspect-ratio:3/2;overflow:hidden}
+.sim__v{display:block;width:100%;height:100%;transform:scale(1.24);filter:var(--sim-filter);mix-blend-mode:var(--sim-blend)}
+.sim__cap{display:block;margin-top:16px}
+.sim__cap>span{display:block;font-family:var(--mono);font-size:11px;line-height:1.7;letter-spacing:.06em;color:var(--muted)}
+.sim__cap a{white-space:nowrap}
+.sim__cap .c-dark{display:none}
+[data-theme="dark"] .sim__cap .c-dark{display:inline}
+[data-theme="dark"] .sim__cap .c-light{display:none}
+.focus{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.focus__cell{background:var(--paper);padding:26px 28px}
+.focus__n{font-family:var(--mono);font-size:12px;color:var(--accent)}
+.focus__cell h3{font-family:var(--display);font-weight:500;font-size:22px;margin:12px 0 8px;line-height:1.15;letter-spacing:-.015em}
+.focus__cell p{margin:0;color:var(--ink-soft);font-size:15px;line-height:1.6}
+@media (max-width:980px){.appr{grid-template-columns:1fr}}
+.cur{margin-top:clamp(34px,4vw,56px);border-top:1px solid var(--line);padding-top:30px}
+.cur>.label{margin-bottom:22px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,5vw,72px);position:relative}
+.cols::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:1px;background:var(--line);transform:translateX(-.5px)}
+@media (max-width:720px){.cols{grid-template-columns:1fr}.cols::before{display:none}}
+
+/* timeline rows */
+.tl__item{display:grid;grid-template-columns:116px 1fr;gap:18px;padding:18px 0;border-top:1px solid var(--line)}
+.tl__when{font-family:var(--mono);font-size:12.5px;color:var(--accent);padding-top:4px;letter-spacing:.01em}
+.tl__what{font-size:20px;line-height:1.25;color:var(--ink)}
+.tl__where{font-size:14.5px;color:var(--ink-soft);margin-top:5px}
+@media (max-width:720px){.tl__item{grid-template-columns:100px 1fr;gap:14px}}
+
+/* publications */
+.olist__item{display:grid;grid-template-columns:92px 1fr;gap:18px;padding:20px 0;border-top:1px solid var(--line)}
+.olist__yr{font-family:var(--mono);font-size:13px;color:var(--accent);padding-top:3px}
+.olist__venue{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.olist__title{font-size:20px;line-height:1.25;margin-top:4px;color:var(--ink)}
+.olist__auth{font-size:14px;line-height:1.5;color:var(--ink-soft);margin-top:7px}
+.olist__auth b{font-weight:600;color:var(--ink)}
+.olist__note{font-size:14px;color:var(--ink-soft);margin-top:6px}
+.olist__more{margin-top:26px;font-size:14.5px;display:flex;gap:26px;flex-wrap:wrap}
+.olist__title a{color:var(--ink);background-image:linear-gradient(var(--accent),var(--accent));background-size:0 1px;background-repeat:no-repeat;background-position:0 100%;transition:background-size .3s}
+.olist__title a:hover{background-size:100% 1px;color:var(--accent-ink)}
+@media (max-width:720px){.olist__item{grid-template-columns:76px 1fr;gap:14px}}
+
+/* funding */
+.proj{border-top:1px solid var(--line)}
+.proj__row{display:grid;grid-template-columns:100px 1.5fr 1.1fr 200px;gap:28px;padding:30px 0;border-bottom:1px solid var(--line);align-items:start;transition:background .3s ease;margin-inline:calc(-1 * var(--gutter));padding-inline:var(--gutter)}
+.proj__row:hover{background:var(--paper-2)}
+.proj__yr{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--muted);line-height:1.5;padding-top:3px}
+.proj__t h3{font-family:var(--display);font-weight:500;font-size:clamp(19px,1.9vw,23px);line-height:1.2;margin:0;letter-spacing:-.015em}
+.proj__d{color:var(--ink-soft);font-size:15.5px;line-height:1.6}
+.proj__meta{text-align:right}
+.proj__meta .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.proj__meta .v{font-size:14px;color:var(--ink);margin:3px 0 14px}
+.proj__meta .v:last-child{margin-bottom:0}
+@media (max-width:860px){.proj__row{grid-template-columns:1fr;gap:8px}.proj__meta{text-align:left;margin-top:6px}.proj__meta .v{margin-bottom:10px}}
+
+/* honors, talks, software */
+.hon{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(40px,5vw,72px)}
+.hon__item{display:grid;grid-template-columns:92px 1fr;gap:18px;padding:20px 0;border-top:1px solid var(--line)}
+.hon__yr{font-family:var(--mono);font-size:13px;color:var(--accent);padding-top:4px}
+.hon__t{font-size:20px;line-height:1.25;color:var(--ink)}
+.hon__d{font-size:14.5px;color:var(--ink-soft);margin-top:5px}
+@media (max-width:720px){.hon{grid-template-columns:1fr}.hon__item{grid-template-columns:76px 1fr;gap:14px}}
+.talks{background:var(--paper-2);border-block:1px solid var(--line)}
+.soft{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.soft__cell{background:var(--paper);padding:30px}
+.soft__cell h3{font-family:var(--display);font-weight:500;font-size:24px;margin:12px 0 10px;line-height:1.15;letter-spacing:-.015em}
+.soft__cell p{margin:0 0 16px;color:var(--ink-soft);font-size:15px;line-height:1.6}
+.soft__meta{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.soft__cell a{display:block;margin-top:4px}
+.soft__cell a:first-of-type{margin-top:0}
+@media (max-width:820px){.soft{grid-template-columns:1fr}}
+
+/* service lists */
+.svc{margin:0;padding:0;list-style:none}
+.svc li{padding:14px 0;border-top:1px solid var(--line);font-size:15.5px;line-height:1.55;color:var(--ink-soft)}
+.svc li b{font-weight:500;color:var(--ink);display:block;font-size:17px;margin-bottom:2px}
+
+/* contact + footer */
+.contact{background:var(--paper-2);border-top:1px solid var(--line)}
+.contact__grid{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(36px,5vw,72px);align-items:end}
+.contact h2{font-family:var(--display);font-weight:500;font-size:clamp(32px,4.6vw,56px);line-height:1.06;letter-spacing:-.025em;margin:16px 0 24px}
+.contact p{color:var(--ink-soft);max-width:34em;margin:0 0 30px}
+.chan{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 0;border-top:1px solid var(--line)}
+.chan a{font-size:15px;color:var(--ink)}
+.chan a:hover{color:var(--accent)}
+.chan span{font-family:var(--mono);font-size:12px;color:var(--muted);text-align:right}
+.chan span a{color:inherit;text-decoration:none;font-size:inherit}
+.chan span a:hover{color:var(--accent)}
+@media (max-width:820px){.contact__grid{grid-template-columns:1fr}}
+footer.foot{border-top:1px solid var(--line)}
+.foot__inner{display:flex;justify-content:space-between;gap:20px;padding-block:30px;flex-wrap:wrap}
+.foot__inner span{font-size:13px;color:var(--muted)}
+
+/* motion */
+@media (prefers-reduced-motion:no-preference){
+  .js .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+}
+
+/* print: a reviewer printing the page gets a clean light document */
+@media print{
+  :root,[data-theme="dark"]{--paper:#fff;--paper-2:#fff;--ink:#000;--ink-soft:#222;--muted:#555;--line:#bbb;--accent:#8A0320;--accent-2:#3B4CC0}
+  html,body{background:#fff!important;background-image:none!important}
+  header.nav,.theme,.nav__toggle,.sim,.hero__actions,.btn,.portrait::before,footer.foot{display:none!important}
+  .reveal{opacity:1!important;transform:none!important}
+  section{padding-block:22px;break-inside:auto}
+  .tl__item,.olist__item,.hon__item,.proj__row,.focus__cell,.soft__cell{break-inside:avoid}
+  .proj__row{margin-inline:0;padding-inline:0}
+  .hero h1{font-size:40px}
+  a{color:inherit;text-decoration:none}
+  .talks,.contact{background:none;border:none}
+}
+
+/* Editorial hierarchy and responsive refinements */
+.hero__eyebrow{white-space:normal}
+.hero__grid{grid-template-columns:1.6fr 1fr;align-items:center}
+.hero h1{font-size:clamp(46px,6.5vw,84px)}
+.hero__q b{display:inline}
+.portrait{max-width:300px;justify-self:end}
+.portrait__tag{display:block;font-family:var(--sans);font-size:13px;letter-spacing:0;text-transform:none;line-height:1.5}
+.label,.avail,.soft__meta{font-size:12px;letter-spacing:.07em}
+section{padding-block:clamp(40px,4.5vw,60px)}
+section:not(.hero)+section{border-top:1px solid var(--line)}
+.appr{grid-template-columns:1.1fr 1fr;align-items:center}
+.sim__v{transform:none;object-fit:contain}
+.sim__cap>span{font-family:var(--sans);font-size:14px;letter-spacing:0;line-height:1.6}
+.sim__cap a{white-space:normal}
+.sim-toggle{margin:8px 0 0;border:1px solid var(--ink-soft);border-radius:99px;padding:10px 18px;background:var(--paper);color:var(--ink);font:500 14px var(--sans);cursor:pointer;min-height:44px}
+.sim-toggle:hover{border-color:var(--accent);color:var(--accent)}
+[hidden]{display:none!important}
+.research-story h3,.direction h3,#leadership h3{font-family:var(--display);font-size:25px;font-weight:500;line-height:1.2;margin:0 0 16px}
+.research-story p,.direction__intro,.collab-note p,#about p{color:var(--ink-soft);font-size:16px}
+.direction .sec-head{margin-bottom:14px}
+.direction__intro{max-width:62em;margin-bottom:24px}
+.focus{grid-template-columns:repeat(3,1fr)}
+.focus__cell{padding:24px}
+.direction .focus__cell h3{font-size:20px;margin:0 0 12px}
+.collab-note{margin-top:28px;padding-left:24px;border-left:2px solid var(--accent)}
+.collab-note h3{font-size:19px;font-weight:500;margin-bottom:8px}
+.collab-note p{margin:0 0 12px}
+.featured-papers{border-top:1px solid var(--line)}
+.paper{padding:24px 0;border-bottom:1px solid var(--line)}
+.paper h3{font-family:var(--display);font-size:23px;font-weight:500;line-height:1.3;margin:8px 0 12px;max-width:42em}
+.paper h3 a{color:var(--ink);text-decoration-color:var(--line)}
+.paper h3 a:hover{color:var(--accent)}
+.paper p{margin:0 0 12px;color:var(--ink-soft);max-width:58em}
+.paper__role{font-size:14px;color:var(--accent)}
+.more-publications{margin-top:24px}
+summary{cursor:pointer;padding:14px 0;color:var(--ink);font-weight:500;min-height:44px}
+.more-publications[open] summary{margin-bottom:10px}
+.olist__item{grid-template-columns:65px 1fr}
+.olist__venue{font-size:12px;letter-spacing:.03em}
+.olist__auth{font-size:14px}
+.teaching-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+@media(max-width:720px){.teaching-grid{grid-template-columns:1fr;gap:0}}
+.recognition p{font-size:15px;line-height:1.8;color:var(--ink-soft)}
+.recognition strong{font-weight:500;color:var(--ink)}
+.news{grid-template-columns:1fr}
+#about h2{font-family:var(--display);font-size:30px;letter-spacing:-.02em;font-weight:500;margin:0 0 22px}
+#about .tl__what{font-size:16px;line-height:1.5}
+#about .tl__when{font-size:13px}
+.chan{flex-wrap:wrap}
+.chan a{overflow-wrap:anywhere}
+.chan span{font-family:var(--sans);font-size:14px}
+.nav__links{gap:20px}
+.nav__links a:not(.nav__cta){min-height:44px;display:flex;align-items:center}
+.theme{width:44px;height:44px}
+.nav__toggle{min-height:44px}
+@media (max-width:980px){.appr{grid-template-columns:1fr 1fr}.hero__grid{grid-template-columns:1.6fr 1fr}.portrait{max-width:260px}}
+@media (max-width:720px){
+  .hero__grid,.appr,.focus{grid-template-columns:1fr}
+  .portrait{justify-self:start;max-width:180px;margin-top:8px}
+  .hero__grid{row-gap:24px}
+  .hero__role{font-size:20px}
+  .hero__q{font-size:20px}
+  .hero__actions{margin-top:24px;gap:8px}
+  .hero__actions .btn{padding-inline:18px}
+  .hero{padding-block:32px}
+  .avail{font-family:var(--sans);letter-spacing:0;text-transform:none;font-size:14px}
+  .sec-head{gap:18px}
+  .paper h3{font-size:21px}
+  .contact h2{font-size:36px}
+  .nav__links{max-height:calc(100dvh - 68px);overflow-y:auto}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+@media print{.sim-toggle{display:none}details:not([open]){display:none}.focus{grid-template-columns:1fr}.paper{break-inside:avoid}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav" id="nav">
+  <div class="wrap nav__inner">
+    <a class="nav__name" href="#top">Simon Syga</a>
+    <button class="theme" id="themeToggle" type="button" aria-label="Switch to dark mode" title="Switch theme">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7"></circle><path d="M10 3a7 7 0 0 0 0 14z"></path></svg>
+    </button>
+    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks"><i aria-hidden="true"></i>Menu</button>
+    <nav class="nav__links" id="navLinks" aria-label="Main navigation">
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#leadership">Funding &amp; teaching</a>
+      <a href="#software">Software</a>
+      <a href="#about">About</a>
+      <a href="assets/simon-syga-cv.pdf" target="_blank" rel="noopener">CV</a>
+      <a class="nav__cta" href="mailto:simon.syga@tu-dresden.de">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<a id="top"></a>
+<main id="main" tabindex="-1">
+<section class="hero" id="hero">
+  <div class="wrap hero__grid">
+    <div class="label hero__eyebrow">Postdoctoral researcher · TU Dresden</div>
+    <div>
+      <h1>Simon Syga</h1>
+      <div class="hero__role">Mathematical biologist &amp; applied mathematician</div>
+      <p class="hero__q">I study how spatial structure and phenotypic plasticity shape <b>tumor evolution and treatment resistance.</b></p>
+      <p class="hero__sub">I connect the behavior of individual cells to population-level theory, using stochastic models, mathematical analysis and experimental data.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#research">Explore my research</a>
+        <a class="btn btn--ghost" href="assets/simon-syga-cv.pdf" target="_blank" rel="noopener"><span class="u">CV (PDF)</span></a>
+      </div>
+    </div>
+    <div class="portrait">
+      <div class="portrait__frame"><img src="assets/profile.png" alt="Simon Syga" width="400" height="500" fetchpriority="high"></div>
+      <div class="portrait__tag">Center for Interdisciplinary Digital Sciences<br>Dresden, Germany</div>
+    </div>
+  </div>
+</section>
+
+<section id="research">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="label">Research</div><h2>From individual cells<br>to <i>evolving populations.</i></h2></div>
+      <p>Cancer is my principal model system for a broader question: how do phenotypic plasticity and heterogeneity determine whether a population adapts, persists or collapses?</p>
+    </div>
+    <div class="appr">
+      <figure class="sim">
+        <div class="sim__box"><video class="sim__v" id="heroSim" src="assets/mathoncoblog.mp4" poster="assets/tumor-simulation-poster.jpg" muted loop playsinline preload="metadata" controls aria-label="Simulation of tumor growth and phenotypic heterogeneity" aria-describedby="sim-caption"></video></div><button class="sim-toggle" id="simToggle" type="button" aria-controls="heroSim" hidden>Play simulation</button><p id="simError" hidden>The animation could not load. The still image shows the simulated tumor.</p>
+        <figcaption class="sim__cap" id="sim-caption"><span>A simulated tumor develops a proliferative core (<span class="c-light">red</span><span class="c-dark">teal</span>) and a migratory rim (<span class="c-light">blue</span><span class="c-dark">ochre</span>). Individual cells change phenotype in response to their surroundings. <a href="https://doi.org/10.1371/journal.pcbi.1012003">Syga et al., 2024</a>.</span></figcaption>
+      </figure>
+      <div class="research-story">
+        <h3>What heterogeneity tells us</h3>
+        <p>In our tumor evolution model, cells change between migratory and proliferative states controlled by inherited and mutation-driven genotypes and the cells’ microenvironment. We observe that cells at the tumor edge evolve to favor migration over proliferation and vice versa in the tumor bulk. Notably, different genetic configurations can result in this pattern of phenotypic heterogeneity. Tumors display varying levels of genetic and phenotypic heterogeneity, which we show are predictors of tumor recurrence time after treatment. Interestingly, higher phenotypic heterogeneity predicts poor treatment outcomes, unlike genetic heterogeneity.</p>
+        <a href="#publications">Read the paper</a>
+      </div>
+    </div>
+    <div class="direction cur">
+      <p class="direction__intro">My research connects cellular variability, spatial interactions and population dynamics through three complementary approaches.</p>
+      <div class="focus">
+        <article class="focus__cell"><h3>Evolution of tumor heterogeneity</h3><p>I use stochastic agent-based models to study how mutation, phenotypic switching and migration shape tumor heterogeneity and treatment response.</p></article>
+        <article class="focus__cell"><h3>Theory across scales</h3><p>I derive population equations from agent-based birth, death and mutation dynamics and compare them with simulations. Current work examines mutational load, evolutionary rescue and the limits of these approximations.</p></article>
+        <article class="focus__cell"><h3>Models tested against data</h3><p>I combine mechanistic models with Bayesian inference to connect cellular mechanisms to experimental observations and quantify uncertainty in model predictions.</p></article>
+      </div>
+    </div>
+    <div class="collab-note"><h3>Connecting theory and experiment</h3><p>Ongoing collaborations address cancer invasion and immunotherapy with the Friedl group (Radboud UMC, Nijmegen, The Netherlands), lung-cancer treatment resistance with the Marusyk group (Moffitt Cancer Center, Tampa, FL, USA), and glioblastoma heterogeneity with the Perez-García group (University of Castilla-La Mancha, Spain). I welcome imaging, cell-assay and single-cell data that can help shed light on tumor evolution and phenotypic plasticity.</p><a href="mailto:simon.syga@tu-dresden.de">Discuss a research question</a></div>
+  </div>
+</section>
+
+<section id="publications">
+  <div class="wrap">
+    <div class="sec-head"><div><h2>Selected publications</h2></div></div>
+    <div class="featured-papers">
+      <article class="paper">
+        <div class="olist__venue">PLOS Computational Biology · 2024</div>
+        <h3><a href="https://doi.org/10.1371/journal.pcbi.1012003">Evolution of phenotypic plasticity leads to tumor heterogeneity with implications for therapy</a></h3>
+        <p>A spatial model connects evolving plasticity to tumor organization and recurrence after simulated treatment.</p>
+        <div class="olist__auth">Syga, S., Jain, H. P., Krellner, M., Hatzikirou, H. &amp; Deutsch, A.</div>
+      </article>
+      <article class="paper">
+        <div class="olist__venue">European Physical Journal Special Topics · 2026</div>
+        <h3><a href="https://doi.org/10.1140/epjs/s11734-026-02186-1">A novel cellular automaton approach for modeling genotypic and phenotypic heterogeneity in cell systems</a></h3>
+        <p>A framework for representing individual genetic and phenotypic cell states within lattice-gas cellular automata.</p>
+        <div class="olist__auth">Syga, S., Nava-Sedeño, J. M. &amp; Deutsch, A.</div>
+      </article>
+      <article class="paper">
+        <div class="olist__venue">Nature Cell Biology · 2020</div>
+        <h3><a href="https://doi.org/10.1038/s41556-020-0552-6">Cell–cell adhesion and 3D matrix confinement determine jamming transitions in breast cancer invasion</a></h3>
+        <p>Collaborative experimental and modeling work examining how adhesion and tissue confinement shape collective invasion.</p>
+        <div class="olist__auth">Ilina, O., Gritsenko, P. G., Syga, S. et al.</div>
+      </article>
+    </div>
+    <details class="more-publications"><summary>More publications, a book and a preprint</summary><div class="olist">      <div class="olist__item">
+        <div class="olist__yr">2026</div>
+        <div>
+          <div class="olist__venue">Preprint · arXiv</div>
+          <div class="olist__title"><a href="https://doi.org/10.48550/arXiv.2603.07254">Minority-triggered reorientations yield macroscopic cascades and enhanced responsiveness in swarms.</a></div>
+          <div class="olist__auth"><b>Syga, S.</b>, Ray, C. G., Nava-Sedeño, J. M., Peruani, F. &amp; Deutsch, A.</div>
+        </div>
+      </div>
+      <div class="olist__item">
+        <div class="olist__yr">2023</div>
+        <div>
+          <div class="olist__venue">Journal of Cell Science</div>
+          <div class="olist__title"><a href="https://doi.org/10.1242/jcs.260207">Cell jamming in a collagen-based interface assay: tuning by collagen density and proteolysis.</a></div>
+          <div class="olist__auth">Beunk, L., Wen, N., van Helvert, S., Bekker, B., Ran, L., Kang, R., Paulat, T., <b>Syga, S.</b>, Deutsch, A., Friedl, P. &amp; Wolf, K.</div>
+        </div>
+      </div>
+      <div class="olist__item">
+        <div class="olist__yr">2022</div>
+        <div>
+          <div class="olist__venue">Book · Springer Berlin, Heidelberg</div>
+          <div class="olist__title">Mathematik der Pandemie.</div>
+          <div class="olist__auth"><b>Syga, S.</b>, Wolf-Gladrow, D. &amp; Deutsch, A. · Popular-science book on mathematical modeling of the COVID-19 pandemic, in German.</div>
+        </div>
+      </div>
+      <div class="olist__item">
+        <div class="olist__yr">2021</div>
+        <div>
+          <div class="olist__venue">Scientific Reports</div>
+          <div class="olist__title"><a href="https://doi.org/10.1038/s41598-021-01407-y">Inferring the effect of interventions on COVID-19 transmission networks.</a></div>
+          <div class="olist__auth"><b>Syga, S.</b>, David-Rus, D., Schälte, Y., Hatzikirou, H. &amp; Deutsch, A.</div>
+        </div>
+      </div>
+      <div class="olist__item">
+        <div class="olist__yr">2021</div>
+        <div>
+          <div class="olist__venue">PLOS Computational Biology</div>
+          <div class="olist__title"><a href="https://doi.org/10.1371/journal.pcbi.1009066">BIO-LGCA: A cellular automaton modelling class for analysing collective cell migration.</a></div>
+          <div class="olist__auth">Deutsch, A., Nava-Sedeño, J. M., <b>Syga, S.</b> &amp; Hatzikirou, H.</div>
+        </div>
+      </div>
+      <div class="olist__item">
+        <div class="olist__yr">2020</div>
+        <div>
+          <div class="olist__venue">New Journal of Physics</div>
+          <div class="olist__title"><a href="https://doi.org/10.1088/1367-2630/abcb2e">Entropy-driven cell decision-making predicts ‘fluid-to-solid’ transition in multicellular systems.</a></div>
+          <div class="olist__auth">Barua, A.<sup>*</sup>, <b>Syga, S.</b><sup>*</sup>, Mascheroni, P., Kavallaris, N., Meyer-Hermann, M., Deutsch, A. &amp; Hatzikirou, H.</div>
+        </div>
+      </div>
+      <div class="olist__item">
+        <div class="olist__yr">2020</div>
+        <div>
+          <div class="olist__venue">PLOS Computational Biology</div>
+          <div class="olist__title"><a href="https://doi.org/10.1371/journal.pcbi.1008412">Quantification of nematic cell polarity in three-dimensional tissues.</a></div>
+          <div class="olist__auth">Scholich, A., <b>Syga, S.</b>, Morales-Navarrete, H., Segovia-Miranda, F., Nonaka, H., Meyer, K., de Back, W., Brusch, L., Kalaidzidis, Y., Zerial, M., Jülicher, F. &amp; Friedrich, B. M.</div>
+        </div>
+      </div>
+</div><p class="olist__note">* Shared first authorship. See Google Scholar for the full publication list.</p></details>
+    <div class="olist__more"><a href="https://scholar.google.com/citations?user=mDGL_cQAAAAJ">Full publication list on Google Scholar</a><a href="https://orcid.org/0000-0001-9955-9012">ORCID</a></div>
+  </div>
+</section>
+
+<section id="leadership">
+  <div class="wrap">
+    <div class="sec-head"><div><h2>Funding, teaching &amp; supervision</h2></div></div>
+    <div class="cols">
+      <div><h3>Individual funding</h3><ul class="svc">
+        <li><b>Postdoc Starter Kit · 2025–2026</b>Principal applicant. €10,000 from TU Dresden’s Graduate Academy for research visits, collaboration and conference activity.</li>
+        <li><b>State Innovation Scholarship · 2018–2021</b>Recipient of a competitive individual doctoral fellowship funded by the European Social Fund and the Free State of Saxony.</li>
+      </ul></div>
+      <div><h3>Collaborative projects &amp; roles</h3><ul class="svc">
+        <li><b>ERC Advanced Grant subLETHAL · 2022–2027</b>Scientific lead for modeling and lead contributor to the modeling work package on cancer invasion and therapy response. PI: P. Friedl; total project funding: €2.5M.</li>
+        <li><b>Worldwide Cancer Research · 2023–2025</b>Scientific lead for modeling and lead contributor to the work package on collective therapy resistance. PI: P. Friedl; total project funding: £200,000.</li>
+        <li><b>FOSTER.AI — Morpheus.AI · 2025–2026</b>Project supervisor for a student research project developing and evaluating an AI-assisted mathematical-model workflow. Total project funding: €10,000.</li>
+      </ul></div>
+    </div>
+    <div class="cur">
+      <h3>Teaching &amp; supervision</h3>
+      <ul class="svc teaching-grid">
+        <li><b>Research supervision</b>Co-supervision of two ongoing PhDs, seven MSc theses and seven student research projects.</li>
+        <li><b>Mathematical biology tutorials</b>Four terms teaching discrete models: programming assignments, classes, feedback and oral examinations.</li>
+        <li><b>Seminars &amp; workshops</b>Co-organized seven interdisciplinary mathematical biology seminars and a multicellular modeling workshop.</li>
+      </ul>
+    </div>
+    <div class="recognition cur" id="honors"><h3>Selected recognition</h3><p><strong>Lindau Nobel Laureate Meeting</strong> (2026) · <strong>German Thesis Award — shortlisted</strong> (2025) · <strong>Reinhart Heinrich Award</strong> (ESMTB, 2024) · <strong>MTZ Award for Systems Medicine</strong> (2024)</p></div>
+  </div>
+</section>
+
+<section id="software">
+  <div class="wrap">
+    <div class="sec-head"><div><h2>Research software</h2></div></div>
+    <div class="soft">
+      <article class="soft__cell"><div class="soft__meta">Python · open source</div><h3>biolgca</h3><p>I developed this lattice-gas cellular automaton package during my doctorate. It supports simulations of collective cell behavior and is used in publications and student theses.</p><a href="https://github.com/sisyga/biolgca">Explore biolgca</a></article>
+      <article class="soft__cell"><div class="soft__meta">In development · AI-assisted modeling</div><h3>Morpheus.AI</h3><p>We are developing and evaluating a human-supervised LLM workflow for constructing and refining multicellular models. The aim is to compare candidate mechanisms more efficiently; reliability is a research question we are testing.</p><a href="https://github.com/sisyga/morpheus-skills">Test the Morpheus skill</a></article>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="cols">
+      <div><h2>About me</h2><p>I came to mathematical biology through physics and a fascination with how simple interactions give rise to complex living systems. My work now connects evolutionary theory, cell-based simulation and experimental cancer research.</p><p>I am a postdoctoral researcher at TU Dresden’s Center for Interdisciplinary Digital Sciences. I earned my PhD in Mathematics there in 2024 (summa cum laude), following degrees in Physics.</p><p>I also enjoy making mathematical ideas accessible beyond research: I co-authored <cite>Mathematik der Pandemie</cite>, a popular-science book on modeling the pandemic.</p><a href="assets/simon-syga-cv.pdf" target="_blank" rel="noopener">CV (PDF)</a></div>
+      <div id="news"><h2>Recent news</h2><div class="news">
+        <div class="tl__item"><div class="tl__when">2026</div><div class="tl__what">Reinhart Heinrich Award lecture at ECMTB, Graz.</div></div>
+        <div class="tl__item"><div class="tl__when">2026</div><div class="tl__what">New cellular automaton framework published in <a href="https://doi.org/10.1140/epjs/s11734-026-02186-1">EPJ Special Topics</a>.</div></div>
+        <div class="tl__item"><div class="tl__when">2026</div><div class="tl__what">Beyond cancer: a <a href="https://doi.org/10.48550/arXiv.2603.07254">preprint on minority-triggered reorientations in swarms</a>, with colleagues in collective motion.</div></div>
+      </div></div>
+    </div>
+  </div>
+</section>
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact__grid">
+      <div>
+        <div class="label">Collaborate</div>
+        <h2>Let’s connect <i>theory and experiment.</i></h2>
+        <p>I welcome scientific exchange and collaborations on spatial evolution, cellular heterogeneity and treatment response.</p>
+        <a class="btn btn--primary" href="mailto:simon.syga@tu-dresden.de">Get in touch</a>
+      </div>
+      <div class="contact__channels">
+        <div class="chan"><a href="mailto:simon.syga@tu-dresden.de">Email</a><span><a href="mailto:simon.syga@tu-dresden.de">simon.syga@tu-dresden.de</a></span></div>
+        <div class="chan"><a href="assets/simon-syga-cv.pdf" target="_blank" rel="noopener">CV</a><span><a href="assets/simon-syga-cv.pdf" target="_blank" rel="noopener">PDF</a></span></div>
+        <div class="chan"><a href="https://scholar.google.com/citations?user=mDGL_cQAAAAJ">Google Scholar</a><span><a href="https://scholar.google.com/citations?user=mDGL_cQAAAAJ">Publication list</a></span></div>
+        <div class="chan"><a href="https://orcid.org/0000-0001-9955-9012">ORCID</a><span><a href="https://orcid.org/0000-0001-9955-9012">0000-0001-9955-9012</a></span></div>
+        <div class="chan"><a href="https://github.com/sisyga">GitHub</a><span><a href="https://github.com/sisyga">sisyga</a></span></div>
+        <div class="chan"><a href="https://bsky.app/profile/sisyga.bsky.social">Bluesky</a><span><a href="https://bsky.app/profile/sisyga.bsky.social">@sisyga.bsky.social</a></span></div>
+        <div class="chan"><a href="https://www.linkedin.com/in/simon-syga">LinkedIn</a><span><a href="https://www.linkedin.com/in/simon-syga">simon-syga</a></span></div>
+        <div class="chan"><span style="text-align:left">Center for Interdisciplinary Digital Sciences, TU Dresden, Nöthnitzer Str. 63A, 01187 Dresden, Germany</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="foot">
+  <div class="wrap foot__inner">
+    <span>© 2026 Simon Syga · Dresden, Germany</span>
+    <span>Last updated September 2026</span>
+  </div>
+</footer>
+
+<script>
+  const themeBtn = document.getElementById('themeToggle');
+  const syncTheme = () => {
+    const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+    themeBtn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+  };
+  syncTheme();
+  themeBtn.addEventListener('click', () => {
+    const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (dark) document.documentElement.removeAttribute('data-theme');
+    else document.documentElement.setAttribute('data-theme', 'dark');
+    try { localStorage.setItem('syga-theme', dark ? 'light' : 'dark'); } catch (e) {}
+    syncTheme();
+  });
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    let saved = null;
+    try { saved = localStorage.getItem('syga-theme'); } catch (err) {}
+    if (saved) return;
+    if (e.matches) document.documentElement.setAttribute('data-theme', 'dark');
+    else document.documentElement.removeAttribute('data-theme');
+    syncTheme();
+  });
+
+  const sim = document.getElementById('heroSim');
+  const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (sim) {
+    const playButton = document.getElementById('simToggle');
+    sim.controls = false;
+    playButton.hidden = false;
+    let userPaused = false;
+    sim.addEventListener('loadedmetadata', () => { if (sim.duration > 4) sim.currentTime = 4; }, { once: true });
+    const syncPlayback = () => { playButton.textContent = sim.paused ? 'Play simulation' : 'Pause simulation'; };
+    playButton.addEventListener('click', () => {
+      if (sim.paused) { userPaused = false; sim.play().catch(syncPlayback); }
+      else { userPaused = true; sim.pause(); }
+    });
+    sim.addEventListener('play', syncPlayback);
+    sim.addEventListener('pause', syncPlayback);
+    sim.addEventListener('error', () => {
+      playButton.hidden = true;
+      document.getElementById('simError').hidden = false;
+    });
+    motionPreference.addEventListener('change', () => {
+      if (motionPreference.matches) { userPaused = true; sim.pause(); }
+    });
+    // Start when first visible; scrolling must not interrupt playback.
+    const visibility = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting && !document.hidden) {
+        if (!motionPreference.matches && !userPaused) sim.play().catch(syncPlayback);
+        visibility.disconnect();
+      }
+    }, { threshold: 0 });
+    visibility.observe(sim);
+    let resumeOnReturn = false;
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        resumeOnReturn = !sim.paused;
+        sim.pause();
+      } else if (resumeOnReturn) {
+        resumeOnReturn = false;
+        if (!userPaused && !motionPreference.matches) sim.play().catch(syncPlayback);
+      }
+    });
+    syncPlayback();
+  }
+
+  const nav = document.getElementById('nav');
+  const navToggle = document.getElementById('navToggle');
+  navToggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', String(open));
+  });
+  document.querySelectorAll('#navLinks a').forEach(a => a.addEventListener('click', () => {
+    nav.classList.remove('open'); navToggle.setAttribute('aria-expanded', 'false');
+  }));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && nav.classList.contains('open')) { nav.classList.remove('open'); navToggle.setAttribute('aria-expanded', 'false'); navToggle.focus(); }
+  });
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 12);
+  onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
+
+</script>
+</body>
+</html>
