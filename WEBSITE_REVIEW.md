@@ -77,3 +77,6 @@ Replaced the mixed Leadership section with Individual funding and Collaborative 
 - Selected publications became a plain citation list (five papers plus the thesis, with paper and code links). Explanations and figures now appear only in the research lines; the four figures used only by the old publication cards were removed.
 - The headingless awards strip was removed; every award is a dated, linked item in News, which moved from the About section to directly below the intro (newest six shown, the rest under "Earlier news"). About now holds only the bio.
 - The New Journal of Physics 2020 paper (Barua et al.) moved from the cancer-invasion line to the collective-behavior line.
+- Section order is now intro, News, Research, Publications, Software, Talks, Funding & teaching, About, Contact. Each section has one plain heading; the eyebrow labels that repeated the headings were removed.
+- The three research approaches moved to the top of Research. The collaboration note moved into Contact ("Get in touch"), which now lists only email and address; profile links stay in the intro.
+- Removed the three-approach row and the selected-publications list: the research lines carry the papers, and Publications now only points to Google Scholar and the CV. Removed the Dana-Farber seminar from the selected talks.

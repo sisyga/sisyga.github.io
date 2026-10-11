@@ -4,7 +4,7 @@ One-page academic homepage of Simon Syga (https://sisyga.github.io), built by Gi
 
 ## Structure
 
-- `index.html` only orders the sections; content is in `_data/*.yml` (publications, research lines, talks, news) and `_includes/sections/*.html`.
+- `index.html` only orders the sections; content is in `_data/*.yml` (research lines, talks, news) and `_includes/sections/*.html`.
 - `_layouts/default.html` holds the head, footer and scripts for both pages (`index.html`, `privacy.html`).
 - `assets/site.css` holds all styles; `assets/site.js` the theme toggle, film playback, navigation and GoatCounter events.
 
@@ -15,6 +15,8 @@ One-page academic homepage of Simon Syga (https://sisyga.github.io), built by Gi
 - Figures in `assets/figures/` must come from CC BY papers (credited in captions) or the author's own unpublished renderings; never reproduce figures from paywalled journals.
 - Summaries of papers must stay faithful to the paper; check claims against the source (the author's Zotero library has the PDFs).
 - American spelling ("tumor", "color"), as in the existing text.
+- Every fact appears once: papers appear only in the research lines (Publications just points to Google Scholar and the CV); awards appear only in News; profile links only in the intro; collaborations only in Contact.
+- Each section has one plain `<h2>` in `.sec-head` (no eyebrow `.label`; the colored-dot label is used only in the intro).
 
 ## Preview
 

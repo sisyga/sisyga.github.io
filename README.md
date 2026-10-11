@@ -6,7 +6,6 @@ A one-page academic homepage at https://sisyga.github.io, built by GitHub Pages 
 
 | To change… | Edit |
 |---|---|
-| Publications (selected five and the thesis) | `_data/publications.yml` |
 | Research lines (question, finding, figure, papers) | `_data/research.yml` |
 | Talks | `_data/talks.yml` |
 | News (newest six shown below the intro, the rest under "Earlier news") | `_data/news.yml` |
@@ -22,7 +21,7 @@ Text fields in the data files may contain HTML, for example links or `&amp;`. Qu
 
 ### Adding a publication
 
-Explain the paper in its research line in `_data/research.yml` (add it to that line's `papers`, and update the figure only if it shows the new result). If it belongs among the selected papers, also add a citation entry to `selected` in `_data/publications.yml` (keep about five). Reuse figures only from openly licensed papers (for example CC BY), or your own unpublished renderings, and credit the source.
+Add it to the `papers` of its research line in `_data/research.yml` and, if it changes the story, update that line's text or figure. The Publications section only points to Google Scholar and the CV. Reuse figures only from openly licensed papers (for example CC BY), or your own unpublished renderings, and credit the source.
 
 ## Preview
 

@@ -1,17 +1,5 @@
 <section id="publications">
   <div class="wrap">
-    <div class="sec-head"><div><div class="label">Publications</div><h2>Selected publications</h2></div><p>The research lines above explain each paper. The full list is on <a href="https://scholar.google.com/citations?user=mDGL_cQAAAAJ">Google Scholar</a> and in my <a href="assets/simon-syga-cv.pdf" target="_blank" rel="noopener">CV</a>.</p></div>
-    <ol class="pubs">
-      {% for pub in site.data.publications.selected %}<li class="pub">
-        <h3><a href="{{ pub.url }}">{{ pub.title }}</a></h3>
-        <p class="pub__auth">{{ pub.authors }} · <span class="pub__venue">{{ pub.venue }}</span></p>
-        <p class="pub__links">{% for l in pub.links %}<a href="{{ l.url }}">{{ l.label }}</a>{% endfor %}</p>
-      </li>
-      {% endfor %}{% assign t = site.data.publications.thesis %}<li class="pub" id="thesis">
-        <h3><a href="{{ t.url }}">{{ t.title }}</a></h3>
-        <p class="pub__auth">{{ t.authors }} · <span class="pub__venue">{{ t.venue }}</span></p>
-        <p class="pub__links">{% for l in t.links %}<a href="{{ l.url }}">{{ l.label }}</a>{% endfor %}</p>
-      </li>
-    </ol>
+    <div class="sec-head"><h2>Publications</h2><p>All publications are on <a href="https://scholar.google.com/citations?user=mDGL_cQAAAAJ">Google Scholar</a> and in my <a href="assets/simon-syga-cv.pdf" target="_blank" rel="noopener">CV</a>.</p></div>
   </div>
 </section>
