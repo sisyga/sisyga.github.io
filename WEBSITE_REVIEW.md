@@ -71,3 +71,9 @@ Replaced the mixed Leadership section with Individual funding and Collaborative 
 - Roles: first author where listed first; Nature Cell Biology "Modeling & simulation" per its author-contribution statement (in silico data, modeling analysis).
 - The MTZ Award and the Reinhart Heinrich Award were both for the dissertation (TU Dresden news, May 2024 and August 2025). The site keeps the user's wording "Reinhart Heinrich Award".
 - The live CV is the intended public version (user, October 2026).
+
+## Revision — 11 October 2026 (later): removing doublings
+
+- Selected publications became a plain citation list (five papers plus the thesis, with paper and code links). Explanations and figures now appear only in the research lines; the four figures used only by the old publication cards were removed.
+- The headingless awards strip was removed; every award is a dated, linked item in News, which moved from the About section to directly below the intro (newest six shown, the rest under "Earlier news"). About now holds only the bio.
+- The New Journal of Physics 2020 paper (Barua et al.) moved from the cancer-invasion line to the collective-behavior line.

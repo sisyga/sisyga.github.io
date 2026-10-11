@@ -107,4 +107,4 @@ const seen = new IntersectionObserver(entries => entries.forEach(entry => {
   seen.unobserve(entry.target);
   countEvent('section: ' + entry.target.id, 'Viewed section ' + entry.target.id);
 }), { rootMargin: '0px 0px -40% 0px' });
-document.querySelectorAll('main section[id]:not(#hero):not(#recognition)').forEach(sec => seen.observe(sec));
+document.querySelectorAll('main section[id]:not(#hero)').forEach(sec => seen.observe(sec));

@@ -9,10 +9,9 @@ A one-page academic homepage at https://sisyga.github.io, built by GitHub Pages 
 | Publications (selected five and the thesis) | `_data/publications.yml` |
 | Research lines (question, finding, figure, papers) | `_data/research.yml` |
 | Talks | `_data/talks.yml` |
-| News | `_data/news.yml` |
-| Awards strip under the intro | `_data/recognition.yml` |
+| News (newest six shown below the intro, the rest under "Earlier news") | `_data/news.yml` |
 | "Last updated" date in the footer | `_data/site.yml` |
-| Intro, funding & teaching, software, about, contact | `_includes/sections/*.html` |
+| Intro, news, funding & teaching, software, about, contact | `_includes/sections/*.html` |
 | Page order | `index.html` |
 | Head, footer and scripts shared by all pages | `_layouts/default.html` |
 | Styles | `assets/site.css` |
@@ -23,7 +22,7 @@ Text fields in the data files may contain HTML, for example links or `&amp;`. Qu
 
 ### Adding a publication
 
-Add an entry to `selected` in `_data/publications.yml` (keep about five) and put a figure in `assets/figures/` (WebP, about 1100 px wide). Reuse figures only from openly licensed papers (for example CC BY), or your own unpublished renderings, and credit the source.
+Explain the paper in its research line in `_data/research.yml` (add it to that line's `papers`, and update the figure only if it shows the new result). If it belongs among the selected papers, also add a citation entry to `selected` in `_data/publications.yml` (keep about five). Reuse figures only from openly licensed papers (for example CC BY), or your own unpublished renderings, and credit the source.
 
 ## Preview
 
@@ -47,7 +46,7 @@ Open http://127.0.0.1:4000/.
 
 ## Assets
 
-- `assets/figures/` — one figure per research line or paper, cropped from the published papers (CC BY 4.0) or from unpublished renderings of my own simulations.
+- `assets/figures/` — one figure per research line, cropped from the published papers (CC BY 4.0) or from unpublished renderings of my own simulations.
 - `assets/mathoncoblog.mp4` and `assets/tumor-simulation-poster.jpg` — the tumor simulation film and its still. The film has a play/pause button, pauses in background tabs and does not autoplay when reduced motion is requested. To regenerate the still: `ffmpeg -ss 4 -i assets/mathoncoblog.mp4 -frames:v 1 -q:v 3 assets/tumor-simulation-poster.jpg`.
 - `assets/profile.webp` and `assets/profile.png` — portrait (WebP for display; PNG as fallback and social-preview image).
 - `assets/simon-syga-cv.pdf` — public CV.

@@ -59,8 +59,6 @@
       url: https://doi.org/10.1038/s41556-020-0552-6
     - label: J Cell Sci 2023
       url: https://doi.org/10.1242/jcs.260207
-    - label: New J Phys 2020
-      url: https://doi.org/10.1088/1367-2630/abcb2e
 
 - id: collective
   label: 03 · Collective behavior &amp; methods
@@ -87,6 +85,8 @@
     follows a strongly deviating neighbor triggers cascades of reorientation that make swarms more
     responsive while keeping them cohesive.
   papers:
+    - label: New J Phys 2020
+      url: https://doi.org/10.1088/1367-2630/abcb2e
     - label: PLOS Comput Biol 2021
       url: https://doi.org/10.1371/journal.pcbi.1009066
     - label: BIOMATH 2023

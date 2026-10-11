@@ -1,4 +1,4 @@
-# News, newest first. The first six are shown; the rest sit under "Earlier news".
+# News, newest first, shown right below the intro. The first six are visible; the rest sit under "Earlier news".
 # `when` is a short label (month and year); `text` may contain links.
 # Quote `text` if it contains a colon followed by a space.
 

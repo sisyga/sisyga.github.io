@@ -1,15 +1,7 @@
 <section id="about">
   <div class="wrap">
-    <div class="cols">
+    <div class="about">
       <div><h2>About me</h2><p>I came to mathematical biology through physics and a fascination with how simple interactions give rise to complex living systems. My work now connects evolutionary theory, cell-based simulation and experimental cancer research.</p><p>I am a postdoctoral researcher at TU Dresden’s Center for Interdisciplinary Digital Sciences. I earned my PhD in Mathematics there in 2024 (<a href="#thesis">summa cum laude</a>), following degrees in Physics.</p><p>I also enjoy making mathematical ideas accessible beyond research: I co-authored <cite>Mathematik der Pandemie</cite>, a popular-science book on modeling the pandemic.</p><a href="assets/simon-syga-cv.pdf" target="_blank" rel="noopener">CV (PDF)</a></div>
-      <div id="news"><h2>Recent news</h2><div class="news">
-        {% for item in site.data.news limit:6 %}<div class="tl__item"><div class="tl__when">{{ item.when }}</div><div class="tl__what">{{ item.text }}</div></div>
-        {% endfor %}
-      </div>{% if site.data.news.size > 6 %}
-      <details class="news__more"><summary>Earlier news</summary><div class="news">
-        {% for item in site.data.news offset:6 %}<div class="tl__item"><div class="tl__when">{{ item.when }}</div><div class="tl__what">{{ item.text }}</div></div>
-        {% endfor %}
-      </div></details>{% endif %}</div>
     </div>
   </div>
 </section>

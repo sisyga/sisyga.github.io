@@ -4,7 +4,7 @@ One-page academic homepage of Simon Syga (https://sisyga.github.io), built by Gi
 
 ## Structure
 
-- `index.html` only orders the sections; content is in `_data/*.yml` (publications, research lines, talks, news, awards) and `_includes/sections/*.html`.
+- `index.html` only orders the sections; content is in `_data/*.yml` (publications, research lines, talks, news) and `_includes/sections/*.html`.
 - `_layouts/default.html` holds the head, footer and scripts for both pages (`index.html`, `privacy.html`).
 - `assets/site.css` holds all styles; `assets/site.js` the theme toggle, film playback, navigation and GoatCounter events.
 
