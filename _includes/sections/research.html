@@ -1,0 +1,34 @@
+<section id="research">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="label">Research</div><h2>From individual cells<br>to <i>evolving populations.</i></h2></div>
+      <p>Cancer is my principal model system for a broader question: how do phenotypic plasticity and heterogeneity determine whether a population adapts, persists or collapses?</p>
+    </div>
+{% for line in site.data.research %}
+    <article class="project" id="{{ line.id }}">
+      {% if line.film %}{% include film.html %}{% else %}<figure class="fig">
+        <div class="fig__img"><img src="{{ line.figure.src }}" alt="{{ line.figure.alt }}" width="{{ line.figure.width }}" height="{{ line.figure.height }}" loading="lazy"></div>
+        <figcaption>{{ line.figure.caption }}</figcaption>
+      </figure>{% endif %}
+      <div>
+        <p class="project__n">{{ line.label }}</p>
+        <h3>{{ line.title }}</h3>
+        <p><b>Question</b>{{ line.question }}</p>
+        <p><b>What we found</b>{{ line.finding }}</p>
+        {% if line.now %}<p><b>Now</b>{{ line.now }}</p>{% endif %}
+        {% if line.note %}<p>{{ line.note }}</p>{% endif %}
+        <p class="project__refs"><span>Papers</span>{% for p in line.papers %}{% unless forloop.first %} · {% endunless %}<a href="{{ p.url }}">{{ p.label }}</a>{% endfor %}</p>
+      </div>
+    </article>
+{% endfor %}
+    <div class="direction cur">
+      <p class="direction__intro">Three complementary approaches run through this work.</p>
+      <div class="focus">
+        <article class="focus__cell"><h3>Evolution of tumor heterogeneity</h3><p>I use stochastic agent-based models to study how mutation, phenotypic switching and migration shape tumor heterogeneity and treatment response.</p></article>
+        <article class="focus__cell"><h3>Theory across scales</h3><p>I derive population equations from agent-based birth, death and mutation dynamics and compare them with simulations. Current work examines mutational load, evolutionary rescue and the limits of these approximations.</p></article>
+        <article class="focus__cell"><h3>Models tested against data</h3><p>I combine mechanistic models with Bayesian inference to connect cellular mechanisms to experimental observations and quantify uncertainty in model predictions.</p></article>
+      </div>
+    </div>
+    <div class="collab-note"><h3>Connecting theory and experiment</h3><p>Ongoing collaborations address cancer invasion and immunotherapy with the Friedl group (Radboud UMC, Nijmegen, The Netherlands), lung-cancer treatment resistance with the Marusyk group (Moffitt Cancer Center, Tampa, FL, USA), and glioblastoma heterogeneity with the Perez-García group (University of Castilla-La Mancha, Spain). I welcome imaging, cell-assay and single-cell data that can help shed light on tumor evolution and phenotypic plasticity.</p><a href="mailto:simon.syga@tu-dresden.de">Discuss a research question</a></div>
+  </div>
+</section>

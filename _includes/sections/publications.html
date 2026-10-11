@@ -1,0 +1,25 @@
+<section id="publications">
+  <div class="wrap">
+    <div class="sec-head"><div><div class="label">Publications</div><h2>Selected publications</h2></div><p>Five papers that represent my work. Every paper is also linked from the research lines above.</p></div>
+    <ol class="pubs">
+      {% for pub in site.data.publications.selected %}<li class="pub">
+        <div class="pub__thumb"><img src="{{ pub.image }}" alt="{{ pub.alt }}" width="{{ pub.width }}" height="{{ pub.height }}" loading="lazy"></div>
+        <div>
+          <div class="pub__meta"><span class="olist__venue">{{ pub.venue }}</span>{% if pub.role %}<span class="pub__role">{{ pub.role }}</span>{% endif %}</div>
+          <h3><a href="{{ pub.url }}">{{ pub.title }}</a></h3>
+          <p class="pub__auth">{{ pub.authors }}</p>
+          <p class="pub__sum">{{ pub.summary }}</p>
+          <p class="pub__links">{% for l in pub.links %}{% unless forloop.first %} · {% endunless %}<a href="{{ l.url }}">{{ l.label }}</a>{% endfor %}</p>
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+    {% assign t = site.data.publications.thesis %}<div class="thesis" id="thesis">
+      <div class="pub__meta"><span class="olist__venue">{{ t.venue }}</span></div>
+      <h3><a href="{{ t.url }}">{{ t.title }}</a></h3>
+      <p class="pub__sum">{{ t.summary }}</p>
+      <p class="pub__links">{% for l in t.links %}{% unless forloop.first %} · {% endunless %}<a href="{{ l.url }}">{{ l.label }}</a>{% endfor %}</p>
+    </div>
+    <div class="olist__more"><a href="https://scholar.google.com/citations?user=mDGL_cQAAAAJ">All publications on Google Scholar</a><a href="https://orcid.org/0000-0001-9955-9012">ORCID</a><a href="assets/simon-syga-cv.pdf" target="_blank" rel="noopener">CV (PDF)</a></div>
+  </div>
+</section>

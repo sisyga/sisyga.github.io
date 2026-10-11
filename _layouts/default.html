@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{ page.title }}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="{{ page.description }}">
+{% if page.noindex %}<meta name="robots" content="noindex">
+{% endif %}<link rel="canonical" href="{{ site.url }}{{ page.url | replace: 'index.html', '' }}">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230A0A0A'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' fill='%234FBEE6' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+{% if page.home %}{% include home-meta.html %}{% endif %}<link rel="preload" href="assets/site-fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/site-fonts/archivo-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
+<meta name="theme-color" content="#F5F4F2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0A0B0D" media="(prefers-color-scheme: dark)">
+<script>
+document.documentElement.classList.add('js');
+(function(){
+  var saved = null;
+  try { saved = localStorage.getItem('syga-theme'); } catch(e) {}
+  var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+  if (dark) document.documentElement.setAttribute('data-theme', 'dark');
+})();
+</script>
+</head>
+<body>
+{{ content }}
+<footer class="foot">
+  <div class="wrap foot__inner">
+    <span>© {{ site.time | date: '%Y' }} Simon Syga · Dresden, Germany{% unless page.url == '/privacy.html' %} · <a href="privacy.html">Privacy</a>{% endunless %}</span>
+    <span>Last updated {{ site.data.site.updated }}</span>
+  </div>
+</footer>
+{% if page.home %}
+<script src="assets/site.js"></script>
+<script data-goatcounter="https://sisyga.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+{% endif %}</body>
+</html>

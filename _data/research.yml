@@ -1,0 +1,127 @@
+# Research lines shown in the Research section, in order.
+# Each line has either `film: true` (the tumor simulation video) or a `figure`.
+# Text fields may contain HTML (links, <cite>, &amp;).
+
+- id: plasticity
+  label: 01 · Tumor evolution
+  title: Why tumor edges and cores evolve differently
+  film: true
+  question: >-
+    Cancer cells can switch between migrating and dividing in response to their surroundings.
+    How does evolution tune this switch, and what does the resulting heterogeneity mean for therapy?
+  finding: >-
+    In a spatial model that tracks the genotype and phenotype of every cell, cells at the invasive
+    edge evolve to favor migration and cells in the crowded core evolve to favor proliferation.
+    Different genetic configurations can produce the same pattern. After simulated treatment, tumors
+    with more phenotypic heterogeneity recurred sooner, whereas more genetic heterogeneity was
+    associated with later recurrence.
+  now: >-
+    A new cellular automaton framework makes such genotype–phenotype models easier to build and
+    analyze. Current collaborations apply these ideas to treatment resistance in lung cancer and to
+    heterogeneity in glioblastoma.
+  papers:
+    - label: PLOS Comput Biol 2024
+      url: https://doi.org/10.1371/journal.pcbi.1012003
+    - label: Eur Phys J Spec Top 2026
+      url: https://doi.org/10.1140/epjs/s11734-026-02186-1
+    - label: PhD thesis, TU Dresden 2024
+      url: https://tud.qucosa.de/id/qucosa%3A89825
+
+- id: invasion
+  label: 02 · Cancer invasion
+  title: How tissue confinement shapes cancer invasion
+  figure:
+    src: assets/figures/jamming-2020.webp
+    width: 900
+    height: 925
+    alt: >-
+      Grid of simulated invasion fronts: with low adhesion and low matrix density, cells scatter and
+      single cells escape; with high adhesion, cells move as large coordinated groups.
+    caption: >-
+      Simulated invasion fronts for increasing matrix density (left to right) and cell–cell adhesion
+      (top to bottom). Color shows how strongly neighboring cells move together; circles mark cells
+      that escaped alone. Simulations for
+      <a href="https://doi.org/10.1038/s41556-020-0552-6">Ilina et al., Nature Cell Biology 2020</a>.
+  question: >-
+    Breast cancer cells invade surrounding tissue either as cohesive groups or as single cells.
+    What decides between the two?
+  finding: >-
+    With Peter Friedl’s group, we combined organotypic culture, intravital microscopy and cellular
+    automaton simulations. Three-dimensional tissue boundaries regulate cell density and keep cells
+    moving collectively even when cell–cell junctions are weakened; single cells escape only where
+    free space opens up. In a follow-up study, the model predicted that cells can invade along tissue
+    clefts without degrading the surrounding matrix, which experiments confirmed.
+  now: >-
+    I lead the modeling in the ERC Advanced Grant subLETHAL, which extends this work to how invading
+    cells respond to therapy.
+  papers:
+    - label: Nature Cell Biology 2020
+      url: https://doi.org/10.1038/s41556-020-0552-6
+    - label: J Cell Sci 2023
+      url: https://doi.org/10.1242/jcs.260207
+    - label: New J Phys 2020
+      url: https://doi.org/10.1088/1367-2630/abcb2e
+
+- id: collective
+  label: 03 · Collective behavior &amp; methods
+  title: From local rules to collective behavior
+  figure:
+    src: assets/figures/biolgca-2021.webp
+    width: 1100
+    height: 554
+    alt: >-
+      Two phase diagrams of a lattice-gas model, spanned by alignment and adhesion strength, showing
+      regions of diffusive motion, collective motion, aggregation and jamming.
+    caption: >-
+      Migration modes predicted for the BIO-LGCA as alignment and adhesion strength vary. Adapted from
+      <a href="https://doi.org/10.1371/journal.pcbi.1009066">Deutsch et al., PLOS Comput Biol 2021</a>
+      (CC BY 4.0).
+  question: >-
+    Cells and animal groups coordinate their movement without a leader. Which local interaction rules
+    produce collective behavior, and how can we build discrete models that we can analyze and trust?
+  finding: >-
+    BIO-LGCA, a lattice-gas cellular automaton framework I helped develop, derives interaction rules
+    from biophysics or data and predicts collective phases such as aggregation and jamming by
+    mean-field analysis. We showed how such lattice models can produce artificial checkerboard
+    patterns and how to prevent them. In a recent preprint, a rule in which an agent occasionally
+    follows a strongly deviating neighbor triggers cascades of reorientation that make swarms more
+    responsive while keeping them cohesive.
+  papers:
+    - label: PLOS Comput Biol 2021
+      url: https://doi.org/10.1371/journal.pcbi.1009066
+    - label: BIOMATH 2023
+      url: https://doi.org/10.55630/j.biomath.2023.11.177
+    - label: arXiv 2026
+      url: https://doi.org/10.48550/arXiv.2603.07254
+    - label: biolgca software
+      url: "#software"
+
+- id: epidemics
+  label: 04 · Epidemics
+  title: What contact restrictions changed in COVID-19 transmission
+  figure:
+    src: assets/figures/covid-2021.webp
+    width: 1100
+    height: 749
+    alt: >-
+      Two ring-shaped contact networks: a strongly clustered one with few random long-range links and
+      a weakly clustered one with many.
+    caption: >-
+      Strongly and weakly clustered contact networks in the model. From
+      <a href="https://doi.org/10.1038/s41598-021-01407-y">Syga et al., Scientific Reports 2021</a>
+      (CC BY 4.0).
+  question: >-
+    During the first COVID-19 wave in Germany, non-pharmaceutical interventions changed how people
+    met. Which features of the contact network did they change?
+  finding: >-
+    Combining an agent-based model on a small-world network with Bayesian inference, we found that
+    the interventions mainly removed random, long-range contacts and increased clustering. This
+    switched the epidemic from exponential growth to a regime of constant new cases, in which the
+    disease spreads like a wave at a speed that mean-field theory predicts.
+  note: >-
+    For a general audience, I co-authored the book <cite>Mathematik der Pandemie</cite> (Springer, 2022).
+  papers:
+    - label: Scientific Reports 2021
+      url: https://doi.org/10.1038/s41598-021-01407-y
+    - label: Mathematik der Pandemie, 2022
+      url: https://doi.org/10.1007/978-3-662-64813-1

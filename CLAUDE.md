@@ -1,58 +1,21 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+One-page academic homepage of Simon Syga (https://sisyga.github.io), built by GitHub Pages with Jekyll 3.10 from `master`. README.md maps every kind of edit to its file; read it first.
 
-## Project Overview
+## Structure
 
-This is an academic personal homepage built using Jekyll and the Academic Pages theme. It's a static site hosted on GitHub Pages for showcasing academic work, publications, talks, and teaching materials.
+- `index.html` only orders the sections; content is in `_data/*.yml` (publications, research lines, talks, news, awards) and `_includes/sections/*.html`.
+- `_layouts/default.html` holds the head, footer and scripts for both pages (`index.html`, `privacy.html`).
+- `assets/site.css` holds all styles; `assets/site.js` the theme toggle, film playback, navigation and GoatCounter events.
 
-## Site Architecture
+## Conventions
 
-### Content Structure
-- `_pages/`: Main site pages (about, CV, publications, etc.)
-- `_posts/`: Blog posts in markdown format
-- `_publications/`: Academic publications (auto-generated from TSV)
-- `_talks/`: Conference talks and presentations
-- `_teaching/`: Teaching materials and courses
-- `_portfolio/`: Portfolio items
-- `files/`: Static files (PDFs, slides, papers)
+- Keep the color palette (tokens at the top of `site.css`) and the tumor simulation film; check every visual change in both light and dark themes and at phone width (no horizontal scroll).
+- Load nothing from third-party servers except GoatCounter: fonts are self-hosted for GDPR reasons. If analytics events change, update `privacy.html`.
+- Figures in `assets/figures/` must come from CC BY papers (credited in captions) or the author's own unpublished renderings; never reproduce figures from paywalled journals.
+- Summaries of papers must stay faithful to the paper; check claims against the source (the author's Zotero library has the PDFs).
+- American spelling ("tumor", "color"), as in the existing text.
 
-### Layout System
-- `_layouts/`: Jekyll layout templates
-- `_includes/`: Reusable HTML components
-- `_sass/`: SCSS stylesheets
-- `assets/`: Compiled CSS and JavaScript
+## Preview
 
-### Data Management
-- `_data/`: YAML configuration files
-  - `navigation.yml`: Site navigation structure
-  - `authors.yml`: Author information
-  - `ui-text.yml`: UI text translations
-
-### Content Generation
-- `markdown_generator/`: Python scripts and Jupyter notebooks
-  - Convert TSV files to markdown posts
-  - `publications.tsv` → `_publications/*.md`
-  - `talks.tsv` → `_talks/*.md`
-
-## Key Configuration
-
-### Site Configuration (`_config.yml`)
-- Author profile and social links
-- Jekyll collections setup
-- Plugin configuration
-- Site metadata and SEO settings
-
-### Content Categories
-- Publications: books, manuscripts, conferences
-- Collections: teaching, publications, portfolio, talks
-- Each collection has specific permalink structure
-
-## Development Notes
-
-- Site uses GitHub Pages compatible plugins only
-- JavaScript is minified using UglifyJS
-- SCSS is compiled by Jekyll
-- Images stored in `/images/` directory
-- Static files served from `/files/` directory
-- Talkmap functionality uses Leaflet for geographic visualization
+`jekyll serve` (see README.md). A plain static server shows unrendered Liquid tags.

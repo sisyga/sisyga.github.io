@@ -1,0 +1,8 @@
+<section class="band" id="recognition" aria-label="Recognition">
+  <div class="wrap">
+    <ul>
+      {% for item in site.data.recognition %}<li><span class="band__yr">{{ item.year }}</span>{{ item.text }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>

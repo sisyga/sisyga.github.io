@@ -1,0 +1,16 @@
+# Built by GitHub Pages (Jekyll 3.10). Content lives in _data/ and _includes/sections/;
+# see README.md for how to edit and preview.
+title: Simon Syga
+url: https://sisyga.github.io
+baseurl: ""
+markdown: kramdown
+
+exclude:
+  - README.md
+  - CLAUDE.md
+  - DEPLOY.md
+  - WEBSITE_REVIEW.md
+  - Personal Website.zip
+  - Gemfile
+  - Gemfile.lock
+  - vendor

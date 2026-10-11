@@ -1,0 +1,115 @@
+# Selected publications (keep to about five), newest first.
+# `authors` is HTML: wrap your own name in <b>…</b>. `role` is optional.
+# The image is a figure from the paper in assets/figures/ (credit CC BY sources in the research captions).
+
+selected:
+  - title: Minority-triggered reorientations yield macroscopic cascades and enhanced responsiveness in swarms
+    url: https://doi.org/10.48550/arXiv.2603.07254
+    venue: Preprint · arXiv · 2026
+    role: First author
+    authors: <b>Syga, S.</b>, Guha Ray, C., Nava-Sedeño, J. M., Peruani, F. &amp; Deutsch, A.
+    summary: >-
+      When agents occasionally follow a strongly deviating neighbor, small local cues trigger
+      group-wide cascades of reorientation. Swarms become markedly more responsive while staying cohesive.
+    image: assets/figures/swarms-2026.webp
+    width: 1100
+    height: 277
+    alt: Schematic of the minority-interaction rule and time series of the order parameter showing sudden drops.
+    links:
+      - label: Preprint
+        url: https://doi.org/10.48550/arXiv.2603.07254
+      - label: Code
+        url: https://doi.org/10.5281/zenodo.18773616
+
+  - title: A novel cellular automaton approach for modeling genotypic and phenotypic heterogeneity in cell systems
+    url: https://doi.org/10.1140/epjs/s11734-026-02186-1
+    venue: European Physical Journal Special Topics · 2026
+    role: First author
+    authors: <b>Syga, S.</b>, Nava-Sedeño, J. M. &amp; Deutsch, A.
+    summary: >-
+      Extends lattice-gas cellular automata to follow each cell’s genotype and phenotype. In a growing
+      population, the fastest-growing cells accumulate at the front and accelerate the invasion, as a
+      mean-field analysis predicts.
+    image: assets/figures/evolgca-2026.webp
+    width: 1100
+    height: 479
+    alt: Space–time plot of cell density in an expanding population and the position of the invasion front over time.
+    links:
+      - label: Paper (open access)
+        url: https://doi.org/10.1140/epjs/s11734-026-02186-1
+      - label: Code
+        url: https://github.com/sisyga/biolgca
+
+  - title: Evolution of phenotypic plasticity leads to tumor heterogeneity with implications for therapy
+    url: https://doi.org/10.1371/journal.pcbi.1012003
+    venue: PLOS Computational Biology · 2024
+    role: First author
+    authors: <b>Syga, S.</b>, Jain, H. P., Krellner, M., Hatzikirou, H. &amp; Deutsch, A.
+    summary: >-
+      Cells at the tumor edge evolve to favor migration and cells in the core to favor proliferation.
+      After simulated treatment, more phenotypic heterogeneity meant faster recurrence, while more
+      genetic heterogeneity meant slower recurrence.
+    image: assets/figures/plasticity-2024.webp
+    width: 1100
+    height: 718
+    alt: Space–time plots of simulated tumors under three parameter sets, showing cell density and the evolving switch parameter.
+    links:
+      - label: Paper (open access)
+        url: https://doi.org/10.1371/journal.pcbi.1012003
+      - label: Code
+        url: https://doi.org/10.5281/zenodo.10806326
+
+  - title: Inferring the effect of interventions on COVID-19 transmission networks
+    url: https://doi.org/10.1038/s41598-021-01407-y
+    venue: Scientific Reports · 2021
+    role: First author
+    authors: <b>Syga, S.</b>, David-Rus, D., Schälte, Y., Hatzikirou, H. &amp; Deutsch, A.
+    summary: >-
+      Bayesian inference on an agent-based network model shows that interventions during Germany’s
+      first COVID-19 wave mainly cut random, long-range contacts, turning exponential growth into
+      wave-like spread.
+    image: assets/figures/covid-2021.webp
+    width: 1100
+    height: 749
+    alt: Strongly and weakly clustered contact networks of susceptible, exposed, infected and removed agents.
+    links:
+      - label: Paper (open access)
+        url: https://doi.org/10.1038/s41598-021-01407-y
+      - label: Code
+        url: https://doi.org/10.5281/zenodo.4884171
+
+  - title: Cell–cell adhesion and 3D matrix confinement determine jamming transitions in breast cancer invasion
+    url: https://doi.org/10.1038/s41556-020-0552-6
+    venue: Nature Cell Biology · 2020
+    role: Modeling &amp; simulation
+    authors: >-
+      Ilina, O., Gritsenko, P. G., <b>Syga, S.</b>, Lippoldt, J., La Porta, C. A. M., Chepizhko, O.,
+      Grosser, S., Vullings, M., Bakker, G.-J., Starruß, J., Bult, P., Zapperi, S., Käs, J. A.,
+      Deutsch, A. &amp; Friedl, P.
+    summary: >-
+      Tissue boundaries keep breast cancer cells invading collectively even when cell–cell junctions
+      are weakened; single cells escape only where free space opens up.
+    image: assets/figures/jamming-zoom-2020.webp
+    width: 544
+    height: 544
+    alt: >-
+      Close-up of a simulated invasion front on a hexagonal lattice; arrows show cell velocities,
+      colors their correlation with neighbors, and a circle marks a single escaping cell.
+    links:
+      - label: Paper
+        url: https://doi.org/10.1038/s41556-020-0552-6
+      - label: Code
+        url: https://github.com/sisyga/jamminglgca
+
+thesis:
+  title: "Impacts of genetic and phenotypic heterogeneity on tumor evolution: Mathematical modeling and analysis"
+  url: https://tud.qucosa.de/id/qucosa%3A89825
+  venue: Doctoral thesis · TU Dresden · 2024
+  summary: >-
+    PhD in Mathematics, summa cum laude. Awarded the Reinhart Heinrich Award of the European Society
+    for Mathematical and Theoretical Biology (ESMTB) and the MTZ Award for Systems Medicine.
+  links:
+    - label: Qucosa record
+      url: https://tud.qucosa.de/id/qucosa%3A89825
+    - label: Full text (PDF, open access)
+      url: https://tud.qucosa.de/api/qucosa%3A89825/attachment/ATT-0/

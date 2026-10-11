@@ -1,0 +1,22 @@
+# News, newest first. The first six are shown; the rest sit under "Earlier news".
+# `when` is a short label (month and year); `text` may contain links.
+# Quote `text` if it contains a colon followed by a space.
+
+- when: Jul 2026
+  text: Reinhart Heinrich Award keynote at <a href="https://ecmtb2026.org/programme">ECMTB 2026</a> in Graz, where I also co-organized a minisymposium on spatial plasticity and heterogeneity in cancer.
+- when: Jul 2026
+  text: Took part in the 75th Lindau Nobel Laureate Meeting. <a href="https://tu-dresden.de/tu-dresden/exzellenz/news/auf-tagung-mit-dr-simon-syga-unter-nobelpreistraeger-innen-und-nachwuchswissenschaftler-innen?set_language=en">Interview with TUD</a> about the week at Lake Constance.
+- when: Mar 2026
+  text: 'Beyond cancer: a <a href="https://doi.org/10.48550/arXiv.2603.07254">preprint on minority-triggered reorientations in swarms</a>, with colleagues in collective motion.'
+- when: Feb 2026
+  text: New cellular automaton framework published in <a href="https://doi.org/10.1140/epjs/s11734-026-02186-1">EPJ Special Topics</a>.
+- when: Nov 2025
+  text: Spoke at <a href="https://mathematical-oncology.org/mathonco25/talks/2025-10-29_simon-syga_evolution-of-phenotypic-plasticity-leads-to-tumor-heterogeneity-with-implication/">MathOnco25</a>; my team was runner-up at the IMO Workshop at Moffitt Cancer Center with a project on personalized therapy for advanced ovarian cancer.
+- when: Jul 2025
+  text: Reinhart Heinrich Doctoral Thesis Award of the European Society for Mathematical and Theoretical Biology (<a href="https://tu-dresden.de/cids/center/news/reinhart-heinrich-preis-2024-an-simon-syga?set_language=en">CIDS news</a> · <a href="https://bsky.app/profile/esmtbio.bsky.social/post/3lv6c5zhwgs2o">ESMTB announcement</a>).
+- when: Jun 2025
+  text: Finalist for the German Thesis Award of the Körber Foundation (<a href="https://koerber-stiftung.de/en/projects/german-thesis-award/alle-preistraeger-innen/">archive</a>).
+- when: Aug 2024
+  text: Glioblastoma plasticity paper in <a href="https://doi.org/10.1371/journal.pcbi.1012003">PLOS Computational Biology</a>, with a <a href="https://mathematical-oncology.org/blog/evolution-phenotypic-plasticity.html">behind-the-paper post and cover art</a> on Mathematical Oncology.
+- when: May 2024
+  text: <a href="https://tu-dresden.de/forschung-transfer/news/preis-fuer-hervorragende-promotion-in-der-systemmedizin-geht-an-tud-wissenschaftler-simon-syga?set_language=en">MTZ Award for Systems Medicine</a> for my PhD thesis.

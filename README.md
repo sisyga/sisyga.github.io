@@ -1,26 +1,60 @@
 # Simon Syga — personal website
 
-A static academic homepage. `index.html` contains the layout, styles and small scripts for navigation, theme selection and the research animation. No compilation or npm installation is required.
+A one-page academic homepage at https://sisyga.github.io, built by GitHub Pages with Jekyll. There is no build step to run yourself: push to `master` and GitHub builds and publishes the site.
+
+## Where things live
+
+| To change… | Edit |
+|---|---|
+| Publications (selected five and the thesis) | `_data/publications.yml` |
+| Research lines (question, finding, figure, papers) | `_data/research.yml` |
+| Talks | `_data/talks.yml` |
+| News | `_data/news.yml` |
+| Awards strip under the intro | `_data/recognition.yml` |
+| "Last updated" date in the footer | `_data/site.yml` |
+| Intro, funding & teaching, software, about, contact | `_includes/sections/*.html` |
+| Page order | `index.html` |
+| Head, footer and scripts shared by all pages | `_layouts/default.html` |
+| Styles | `assets/site.css` |
+| Theme toggle, film playback, navigation, statistics events | `assets/site.js` |
+| Privacy information | `privacy.html` |
+
+Text fields in the data files may contain HTML, for example links or `&amp;`. Quote a value that contains a colon followed by a space.
+
+### Adding a publication
+
+Add an entry to `selected` in `_data/publications.yml` (keep about five) and put a figure in `assets/figures/` (WebP, about 1100 px wide). Reuse figures only from openly licensed papers (for example CC BY), or your own unpublished renderings, and credit the source.
 
 ## Preview
 
+GitHub Pages uses Jekyll 3.10. To preview locally (once):
+
 ```bash
-python3 -m http.server 8000 --bind 127.0.0.1
+sudo apt install ruby-dev build-essential
 ```
 
-Open http://127.0.0.1:8000/ in a browser.
+```bash
+gem install --user-install jekyll:3.10.0 webrick kramdown-parser-gfm
+```
 
-## Current site files
+Then, from the repository folder:
 
-- `index.html`
-- `.nojekyll`
-- `assets/profile.png`
-- `assets/mathoncoblog.mp4`
-- `assets/tumor-simulation-poster.jpg`
+```bash
+~/.local/share/gem/ruby/3.3.0/bin/jekyll serve
+```
+
+Open http://127.0.0.1:4000/.
+
+## Assets
+
+- `assets/figures/` — one figure per research line or paper, cropped from the published papers (CC BY 4.0) or from unpublished renderings of my own simulations.
+- `assets/mathoncoblog.mp4` and `assets/tumor-simulation-poster.jpg` — the tumor simulation film and its still. The film has a play/pause button, pauses in background tabs and does not autoplay when reduced motion is requested. To regenerate the still: `ffmpeg -ss 4 -i assets/mathoncoblog.mp4 -frames:v 1 -q:v 3 assets/tumor-simulation-poster.jpg`.
+- `assets/profile.webp` and `assets/profile.png` — portrait (WebP for display; PNG as fallback and social-preview image).
 - `assets/simon-syga-cv.pdf` — public CV.
+- `assets/site-fonts/` — IBM Plex Sans, Archivo and JetBrains Mono (SIL Open Font License), self-hosted so the page makes no requests to Google.
 
-The animation has a play/pause button, pauses in background tabs and resumes on return, and does not autoplay when reduced motion is requested. Its caption explains the simulation independently of playback. The remaining publications use a native, keyboard-accessible disclosure.
+## Visitor statistics
 
-Google Fonts supplies the typefaces; system fonts provide a fallback. Legacy Academic Pages/Jekyll files remain in the repository but are not used by this static homepage.
+The page uses [GoatCounter](https://sisyga.goatcounter.com) (cookie-free; no consent banner needed). Besides page views it records events: `download-cv`, `download-thesis`, `contact-email`, `paper: <DOI>`, `code: <repository or Zenodo record>`, and `section: <id>` the first time each section reaches the upper part of the screen. Local previews are not counted. If the tracked behaviour changes, update `privacy.html`.
 
-See `DEPLOY.md` for publishing and `WEBSITE_REVIEW.md` for content decisions and source notes.
+See `WEBSITE_REVIEW.md` for content decisions and source notes.
