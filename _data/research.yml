@@ -22,8 +22,7 @@
     associated with later recurrence.
   now: >-
     A new cellular automaton framework makes such genotype–phenotype models easier to build and
-    analyze. Current collaborations apply these ideas to treatment resistance in lung cancer and to
-    heterogeneity in glioblastoma.
+    analyze. A current collaboration applies these ideas to heterogeneity in glioblastoma.
   papers:
     - label: PLOS Comput Biol 2024
       url: https://doi.org/10.1371/journal.pcbi.1012003

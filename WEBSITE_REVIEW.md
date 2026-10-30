@@ -114,3 +114,4 @@ Requested by the user after review of the live page:
 - About: removed the grade of the PhD and its link to the thesis.
 - Contact: removed the Marusyk group from the collaborations; the profile links (Google Scholar, ORCID, GitHub, Bluesky, LinkedIn) now also appear below the email.
 - Funding: FOSTER.AI moved to the top of "Collaborative projects & roles", dated 2026–2027. The teaching & supervision block was removed, so the section and its nav item are now called "Funding".
+- Research line 01, "Now": removed the lung-cancer collaboration, in line with Contact.
