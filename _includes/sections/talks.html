@@ -2,8 +2,12 @@
   <div class="wrap">
     <div class="sec-head"><h2>Selected talks</h2><p>Recent invited seminars and conference talks, mostly on the evolution of phenotypic plasticity in tumors. The full list is in my <a href="assets/simon-syga-cv.pdf" target="_blank" rel="noopener">CV</a>.</p></div>
     <ul class="rows">
-      {% for talk in site.data.talks %}<li><span class="meta">{{ talk.year }}</span><div><b>{{ talk.title }}</b>{{ talk.where }}</div></li>
+      {% for talk in site.data.talks limit:4 %}<li><span class="meta">{{ talk.year }}</span><div><b>{{ talk.title }}</b>{{ talk.where }}</div></li>
       {% endfor %}
-    </ul>
+    </ul>{% if site.data.talks.size > 4 %}
+    <details class="more"><summary>More talks</summary><ul class="rows">
+      {% for talk in site.data.talks offset:4 %}<li><span class="meta">{{ talk.year }}</span><div><b>{{ talk.title }}</b>{{ talk.where }}</div></li>
+      {% endfor %}
+    </ul></details>{% endif %}
   </div>
 </section>

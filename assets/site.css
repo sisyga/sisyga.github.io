@@ -114,23 +114,25 @@ header.nav.scrolled{border-bottom-color:var(--line)}
 /* sections */
 section{padding-block:clamp(40px,4.5vw,60px)}
 section:not(.hero)+section{border-top:1px solid var(--line)}
+#news,#software,#leadership{background:color-mix(in oklab,var(--paper) 55%,var(--paper-2))}
 .sec-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:clamp(28px,3vw,40px);flex-wrap:wrap}
-.sec-head h2{font-family:var(--display);font-weight:500;margin:0;font-size:clamp(30px,4vw,46px);line-height:1.05;letter-spacing:-.025em;max-width:16em}
+.sec-head h2{font-family:var(--display);font-weight:500;margin:0;font-size:clamp(28px,3.4vw,40px);line-height:1.05;letter-spacing:-.025em;max-width:16em}
 .sec-head p{color:var(--ink-soft);max-width:30em;margin:0;font-size:16px}
 h2 i,h3 i{font-style:normal;color:var(--accent)}
 
 /* research lines: a figure beside question, finding and papers */
-.project{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(28px,4.5vw,64px);align-items:start;padding-block:clamp(32px,4vw,48px);border-top:1px solid var(--line)}
+.project{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,4.5vw,64px);align-items:start;padding-block:clamp(32px,4vw,48px);border-top:1px solid var(--line)}
 .project:first-of-type{border-top:none;padding-top:0}
 .project__n{font-family:var(--mono);font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);margin:0}
 .project h3{font-family:var(--display);font-weight:500;font-size:clamp(24px,2.5vw,31px);line-height:1.15;letter-spacing:-.02em;margin:10px 0 18px}
 .project p{margin:0 0 14px;color:var(--ink-soft);font-size:16px}
+.project p.project__sum{color:var(--ink);font-size:17px;line-height:1.55;margin-bottom:6px}
 .project p b{display:block;font-family:var(--mono);font-weight:400;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
-.project .project__refs{margin:20px 0 0;padding-top:14px;border-top:1px solid var(--line-2);font-size:14.5px;line-height:1.8}
+.project .project__refs{margin:14px 0 0;padding-top:14px;border-top:1px solid var(--line-2);font-size:14.5px;line-height:1.8}
 .project__refs span{font-family:var(--mono);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-right:10px}
 .fig{margin:0}
 .fig__img{background:var(--fig-bg);border:1px solid var(--line-2);border-radius:4px;padding:clamp(10px,1.4vw,18px)}
-.fig__img img{display:block;width:100%;height:auto;filter:var(--fig-dim)}
+.fig__img img{display:block;width:auto;max-width:100%;height:auto;max-height:380px;margin:0 auto;filter:var(--fig-dim)}
 .fig figcaption,.sim__cap{display:block;margin-top:14px;font-size:13.5px;line-height:1.55;color:var(--muted)}
 .sim{position:relative;margin:0}
 .sim__box{aspect-ratio:3/2;overflow:hidden}
@@ -140,6 +142,7 @@ h2 i,h3 i{font-style:normal;color:var(--accent)}
 [data-theme="dark"] .sim__cap .c-light{display:none}
 .sim-toggle{margin:8px 0 0;border:1px solid var(--ink-soft);border-radius:99px;padding:10px 18px;background:var(--paper);color:var(--ink);font:500 14px var(--sans);cursor:pointer;min-height:44px}
 .sim-toggle:hover{border-color:var(--accent);color:var(--accent)}
+.research__all{margin:0;padding-top:clamp(24px,3vw,36px);border-top:1px solid var(--line);color:var(--ink-soft);font-size:16px}
 #leadership h3{font-family:var(--display);font-size:25px;font-weight:500;line-height:1.2;margin:0 0 16px}
 #about p{color:var(--ink-soft);font-size:16px}
 .cur{margin-top:clamp(34px,4vw,56px);border-top:1px solid var(--line);padding-top:30px}
@@ -152,15 +155,16 @@ h2 i,h3 i{font-style:normal;color:var(--accent)}
 .tl__what{font-size:20px;line-height:1.25;color:var(--ink)}
 .news{display:grid;grid-template-columns:1fr;gap:0 clamp(40px,5vw,72px)}
 .news .tl__item{grid-template-columns:72px 1fr;padding:14px 0}
-.news__more{border-top:1px solid var(--line)}
-.news__more summary{cursor:pointer;padding:14px 0;font-family:var(--mono);font-size:13px;color:var(--accent);list-style-position:inside}
-.news__more summary:hover{color:var(--accent-ink)}
-.news__more[open] summary{padding-bottom:0}
+.more{border-top:1px solid var(--line)}
+.more summary{cursor:pointer;padding:14px 0;font-family:var(--mono);font-size:13px;color:var(--accent);list-style-position:inside}
+.more summary:hover{color:var(--accent-ink)}
+.more[open] summary{padding-bottom:0}
+.project__more{border-top:none}
+.project__more summary{padding:4px 0 10px}
+.project__more[open] summary{padding-bottom:12px}
 .news .tl__what{font-size:16.5px;line-height:1.45}
 #news .news{grid-template-columns:1fr 1fr}
 
-/* publications: only a pointer to the full list */
-#publications .sec-head{margin-bottom:0}
 
 /* funding, teaching, recognition */
 .svc{margin:0;padding:0;list-style:none}
@@ -187,7 +191,7 @@ h2 i,h3 i{font-style:normal;color:var(--accent)}
 /* contact + footer */
 .contact{background:var(--paper-2);border-top:1px solid var(--line)}
 .contact__grid{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(36px,5vw,72px);align-items:end}
-.contact h2{font-family:var(--display);font-weight:500;font-size:clamp(30px,4vw,46px);line-height:1.05;letter-spacing:-.025em;margin:0 0 24px}
+.contact h2{font-family:var(--display);font-weight:500;font-size:clamp(28px,3.4vw,40px);line-height:1.05;letter-spacing:-.025em;margin:0 0 24px}
 .contact p{color:var(--ink-soft);max-width:34em;margin:0 0 16px}
 .contact .btn{margin-top:14px}
 .chan{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 0;border-top:1px solid var(--line)}

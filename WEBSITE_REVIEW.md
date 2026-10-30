@@ -80,3 +80,28 @@ Replaced the mixed Leadership section with Individual funding and Collaborative 
 - Section order is now intro, News, Research, Publications, Software, Talks, Funding & teaching, About, Contact. Each section has one plain heading; the eyebrow labels that repeated the headings were removed.
 - The three research approaches moved to the top of Research. The collaboration note moved into Contact ("Get in touch"), which now lists only email and address; profile links stay in the intro.
 - Removed the three-approach row and the selected-publications list: the research lines carry the papers, and Publications now only points to Google Scholar and the CV. Removed the Dana-Farber seminar from the selected talks.
+
+# Revision — 30 October 2026
+
+Goal: the page read as one long block (measured before: 1,423 words, 7,460 px at 1440 px width, 12,040 px at 390 px; Research 46% of the words), and AI-assisted modeling was missing from Research. Decisions by the user: cancer lines first, AI second, no AI-centered rewrite; video only on LinkedIn, labeled as such; five terms of Discrete Models tutorials.
+
+## Changes
+
+- Research: new line 03 "LLM agents that build tissue models from the literature" (Morpheus.AI), drafted from the arXiv version of the manuscript (morpheus-ai-manuscript/main.tex, 29 Oct 2026; abstract and results). Former lines 03 and 04 became 04 and 05. Its figure (`assets/figures/morpheus-ai-2026.webp`) combines Fig. 1c of the preprint (the agent loop) with the germ-line model the agent built; both are the authors' own and contain no third-party material. Links point to the two public Apache-2.0 repositories until the arXiv ID exists.
+- Research layout: each line shows a one-sentence `summary`; question, finding, next steps and notes open under "Read more". The intro paragraph gained one sentence on methods and LLM agents.
+- Publications section removed; its sentence is now the closing line of Research (anchor `#publications` kept). Nav item removed.
+- Intro: the second sentence now names agent-based models, mathematical analysis, inference from experimental data and LLM agents (it said "stochastic models, mathematical analysis and experimental data"). New button "Video portrait (LinkedIn)" to the CIDS "Driven by people" portrait (posted 13 Oct 2026; two minutes, German with English subtitles; not hosted elsewhere). New GoatCounter event `video-portrait`.
+- News shows four items (was six), talks four (was all seven; the rest under "More talks").
+- Software: the Morpheus.AI card no longer says "in development" or "human-supervised" (the preprint reports runs without human intervention); it describes the skill, MCP server and benchmark and links both repositories.
+- Funding & teaching: "Four terms" corrected to "Five terms" of Discrete Models tutorials (winter 2026 included).
+- Metadata: page description and link preview use the user's wording ("agent-based models of cells and tissues, their analysis and inference, and LLM agents that build simulation models; applied to tumor evolution and therapy resistance"); `knowsAbout` gained "Large language model agents" and "Virtual tissue models".
+- Visual rhythm: a light tint on News, Software and Funding & teaching; section headings one step smaller; figure height capped at 380 px.
+- Printing opens all collapsed text.
+
+## Validation
+
+Built with Jekyll 3.10 and rendered with Playwright at 1440 × 900 and 390 × 844 in both themes: no horizontal overflow, no script errors. Heights after: 7,070 px (laptop) and 10,540 px (phone). The laptop height is now set mostly by the figures, not the text.
+
+## Open
+
+When the arXiv ID appears: add the news item, add the preprint to line 03's links (and drop `refs_label: Code`), and check the arXiv license.

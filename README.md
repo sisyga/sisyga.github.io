@@ -6,9 +6,9 @@ A one-page academic homepage at https://sisyga.github.io, built by GitHub Pages 
 
 | To change… | Edit |
 |---|---|
-| Research lines (question, finding, figure, papers) | `_data/research.yml` |
-| Talks | `_data/talks.yml` |
-| News (newest six shown below the intro, the rest under "Earlier news") | `_data/news.yml` |
+| Research lines (one-sentence summary; question, finding and next steps under "Read more"; figure; papers) | `_data/research.yml` |
+| Talks (newest four shown, the rest under "More talks") | `_data/talks.yml` |
+| News (newest four shown below the intro, the rest under "Earlier news") | `_data/news.yml` |
 | "Last updated" date in the footer | `_data/site.yml` |
 | Intro, news, funding & teaching, software, about, contact | `_includes/sections/*.html` |
 | Page order | `index.html` |
@@ -21,7 +21,7 @@ Text fields in the data files may contain HTML, for example links or `&amp;`. Qu
 
 ### Adding a publication
 
-Add it to the `papers` of its research line in `_data/research.yml` and, if it changes the story, update that line's text or figure. The Publications section only points to Google Scholar and the CV. Reuse figures only from openly licensed papers (for example CC BY), or your own unpublished renderings, and credit the source.
+Add it to the `papers` of its research line in `_data/research.yml` and, if it changes the story, update that line's text or figure. The closing line of Research only points to Google Scholar and the CV. Reuse figures only from openly licensed papers (for example CC BY), or your own unpublished renderings, and credit the source.
 
 ## Preview
 
@@ -53,6 +53,6 @@ Open http://127.0.0.1:4000/.
 
 ## Visitor statistics
 
-The page uses [GoatCounter](https://sisyga.goatcounter.com) (cookie-free; no consent banner needed). Besides page views it records events: `download-cv`, `download-thesis`, `contact-email`, `paper: <DOI>`, `code: <repository or Zenodo record>`, and `section: <id>` the first time each section reaches the upper part of the screen. Local previews are not counted. If the tracked behaviour changes, update `privacy.html`.
+The page uses [GoatCounter](https://sisyga.goatcounter.com) (cookie-free; no consent banner needed). Besides page views it records events: `download-cv`, `download-thesis`, `contact-email`, `video-portrait`, `paper: <DOI>`, `code: <repository or Zenodo record>`, and `section: <id>` the first time each section reaches the upper part of the screen. Local previews are not counted. If the tracked behaviour changes, update `privacy.html`.
 
 See `WEBSITE_REVIEW.md` for content decisions and source notes.

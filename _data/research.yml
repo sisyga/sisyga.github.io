@@ -1,10 +1,15 @@
 # Research lines shown in the Research section, in order.
 # Each line has either `film: true` (the tumor simulation video) or a `figure`.
+# `summary` (one sentence) is always shown; `refs_label` replaces "Papers" above the links; question, finding, now and note open under "Read more".
 # Text fields may contain HTML (links, <cite>, &amp;).
 
 - id: plasticity
   label: 01 · Tumor evolution
   title: Why tumor edges and cores evolve differently
+  summary: >-
+    Cells at the invasive edge of a simulated tumor evolve to favor migration and cells in the core
+    to favor proliferation; after simulated treatment, tumors with more phenotypic heterogeneity
+    recurred sooner.
   film: true
   question: >-
     Cancer cells can switch between migrating and dividing in response to their surroundings.
@@ -30,6 +35,9 @@
 - id: invasion
   label: 02 · Cancer invasion
   title: How tissue confinement shapes cancer invasion
+  summary: >-
+    Three-dimensional tissue boundaries keep breast cancer cells invading as cohesive groups, even
+    when cell–cell junctions are weakened; single cells escape only where free space opens up.
   figure:
     src: assets/figures/jamming-2020.webp
     width: 900
@@ -60,9 +68,50 @@
     - label: J Cell Sci 2023
       url: https://doi.org/10.1242/jcs.260207
 
+- id: agents
+  label: 03 · AI-assisted modeling
+  title: LLM agents that build tissue models from the literature
+  summary: >-
+    LLM agents paired with the simulator Morpheus built virtual tissue models from 15 published
+    studies without human help, and met 83–86% of study-specific criteria when they could run their
+    own simulations, against 55% when they could not.
+  figure:
+    src: assets/figures/morpheus-ai-2026.webp
+    width: 849
+    height: 752
+    alt: >-
+      Diagram of the agent's loop (extract information, generate, execute, evaluate, iterate) above
+      snapshots of the nematode germ-line model the agent built, with proliferative, meiotic, sperm
+      and oocyte cells filling a U-shaped gonad over time.
+    caption: >-
+      The agent’s modeling loop, and the <i>C. elegans</i> germ-line model it built from a published
+      study, 18.5 to 39.4 hours after hatching. From Chandratre et al., preprint 2026.
+  question: >-
+    Building a virtual tissue model takes expertise in biology, mathematics and programming. Can an
+    LLM agent turn a published study into a working simulation on its own, and what does it need to
+    do so?
+  finding: >-
+    With Prerana Chandratre, Lutz Brusch and colleagues, we gave LLM agents five tool setups and
+    15 studies, five of which report experiments but no model. With a frontier LLM, the agents that
+    ran their simulations needed under two hours and under US$4 per model, and their models for
+    studies without a published model scored about as high as their re-implementations of published
+    ones.
+  now: >-
+    I initiated the project and co-lead it with Lutz Brusch. The Morpheus skill and the benchmark are
+    open source, and I use the skill in my own cancer models.
+  refs_label: Code
+  papers:
+    - label: Morpheus skill
+      url: https://github.com/sisyga/morpheus-skills
+    - label: Benchmark code
+      url: https://github.com/sisyga/morpheus-agent-benchmark
+
 - id: collective
-  label: 03 · Collective behavior &amp; methods
+  label: 04 · Collective behavior &amp; methods
   title: From local rules to collective behavior
+  summary: >-
+    Lattice-gas cellular automata that can be analyzed mathematically predict when local interaction
+    rules make cells move collectively, aggregate or jam.
   figure:
     src: assets/figures/biolgca-2021.webp
     width: 1100
@@ -97,8 +146,11 @@
       url: "#software"
 
 - id: epidemics
-  label: 04 · Epidemics
+  label: 05 · Epidemics
   title: What contact restrictions changed in COVID-19 transmission
+  summary: >-
+    Contact restrictions in Germany’s first COVID-19 wave mainly removed random long-range contacts,
+    which turned exponential growth into a constant number of new cases.
   figure:
     src: assets/figures/covid-2021.webp
     width: 1100

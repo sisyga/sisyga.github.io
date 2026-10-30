@@ -2,7 +2,7 @@
   <div class="wrap">
     <div class="sec-head">
       <h2>Research</h2>
-      <p>Cancer is my principal model system for a broader question: how do phenotypic plasticity and heterogeneity determine whether a population adapts, persists or collapses?</p>
+      <p>Cancer is my principal model system for a broader question: how do phenotypic plasticity and heterogeneity determine whether a population adapts, persists or collapses? I address it with agent-based models, their mathematical analysis and inference, and, more recently, LLM agents that build simulation models.</p>
     </div>
 {% for line in site.data.research %}
     <article class="project" id="{{ line.id }}">
@@ -13,13 +13,17 @@
       <div>
         <p class="project__n">{{ line.label }}</p>
         <h3>{{ line.title }}</h3>
-        <p><b>Question</b>{{ line.question }}</p>
-        <p><b>What we found</b>{{ line.finding }}</p>
-        {% if line.now %}<p><b>Now</b>{{ line.now }}</p>{% endif %}
-        {% if line.note %}<p>{{ line.note }}</p>{% endif %}
-        <p class="project__refs"><span>Papers</span>{% for p in line.papers %}{% unless forloop.first %} · {% endunless %}<a href="{{ p.url }}">{{ p.label }}</a>{% endfor %}</p>
+        <p class="project__sum">{{ line.summary }}</p>
+        <details class="more project__more"><summary>Read more</summary>
+          <p><b>Question</b>{{ line.question }}</p>
+          <p><b>What we found</b>{{ line.finding }}</p>
+          {% if line.now %}<p><b>Now</b>{{ line.now }}</p>{% endif %}
+          {% if line.note %}<p>{{ line.note }}</p>{% endif %}
+        </details>
+        <p class="project__refs"><span>{{ line.refs_label | default: 'Papers' }}</span>{% for p in line.papers %}{% unless forloop.first %} · {% endunless %}<a href="{{ p.url }}">{{ p.label }}</a>{% endfor %}</p>
       </div>
     </article>
 {% endfor %}
+    <p class="research__all" id="publications">All publications are on <a href="https://scholar.google.com/citations?user=mDGL_cQAAAAJ">Google Scholar</a> and in my <a href="assets/simon-syga-cv.pdf" target="_blank" rel="noopener">CV</a>.</p>
   </div>
 </section>

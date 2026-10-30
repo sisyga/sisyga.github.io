@@ -76,6 +76,9 @@ document.querySelectorAll('#navLinks a').forEach(a => a.addEventListener('click'
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && nav.classList.contains('open')) { nav.classList.remove('open'); navToggle.setAttribute('aria-expanded', 'false'); navToggle.focus(); }
 });
+// Printouts show every collapsed text (research details, earlier news, more talks).
+window.addEventListener('beforeprint', () => document.querySelectorAll('details').forEach(d => { d.open = true; }));
+
 const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 12);
 onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
 
@@ -92,6 +95,7 @@ document.addEventListener('click', (e) => {
   if (!a) return;
   const href = a.getAttribute('href');
   if (href.endsWith('simon-syga-cv.pdf')) countEvent('download-cv', 'CV (PDF)');
+  else if (href.startsWith('https://www.linkedin.com/posts/')) countEvent('video-portrait', 'Video portrait (LinkedIn)');
   else if (href.startsWith('mailto:')) countEvent('contact-email', 'Email link');
   else if (href.startsWith('https://tud.qucosa.de/api/')) countEvent('download-thesis', 'PhD thesis (PDF)');
   else if (href.startsWith('https://tud.qucosa.de/')) countEvent('paper: PhD thesis', 'PhD thesis (Qucosa)');

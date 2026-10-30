@@ -2,11 +2,11 @@
   <div class="wrap">
     <div class="sec-head"><h2>News</h2></div>
     <div class="news">
-      {% for item in site.data.news limit:6 %}<div class="tl__item"><div class="tl__when">{{ item.when }}</div><div class="tl__what">{{ item.text }}</div></div>
+      {% for item in site.data.news limit:4 %}<div class="tl__item"><div class="tl__when">{{ item.when }}</div><div class="tl__what">{{ item.text }}</div></div>
       {% endfor %}
-    </div>{% if site.data.news.size > 6 %}
-    <details class="news__more"><summary>Earlier news</summary><div class="news">
-      {% for item in site.data.news offset:6 %}<div class="tl__item"><div class="tl__when">{{ item.when }}</div><div class="tl__what">{{ item.text }}</div></div>
+    </div>{% if site.data.news.size > 4 %}
+    <details class="more news__more"><summary>Earlier news</summary><div class="news">
+      {% for item in site.data.news offset:4 %}<div class="tl__item"><div class="tl__when">{{ item.when }}</div><div class="tl__what">{{ item.text }}</div></div>
       {% endfor %}
     </div></details>{% endif %}
   </div>
