@@ -1,9 +1,6 @@
 <section id="research">
   <div class="wrap">
-    <div class="sec-head">
-      <h2>Research</h2>
-      <p>Cancer is my principal model system for a broader question: how do phenotypic plasticity and heterogeneity determine whether a population adapts, persists or collapses? I address it with agent-based models, their mathematical analysis and inference, and, more recently, LLM agents that build simulation models.</p>
-    </div>
+    <div class="sec-head"><h2>Research</h2></div>
 {% for line in site.data.research %}
     <article class="project" id="{{ line.id }}">
       {% if line.film %}{% include film.html %}{% else %}<figure class="fig">

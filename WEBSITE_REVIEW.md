@@ -105,3 +105,12 @@ Built with Jekyll 3.10 and rendered with Playwright at 1440 × 900 and 390 × 84
 ## Open
 
 When the arXiv ID appears: add the news item, add the preprint to line 03's links (and drop `refs_label: Code`), and check the arXiv license.
+
+## Follow-up, same day
+
+Requested by the user after review of the live page:
+
+- Removed the side text next to the section headings (Research, Selected talks).
+- About: removed the grade of the PhD and its link to the thesis.
+- Contact: removed the Marusyk group from the collaborations; the profile links (Google Scholar, ORCID, GitHub, Bluesky, LinkedIn) now also appear below the email.
+- Funding: FOSTER.AI moved to the top of "Collaborative projects & roles", dated 2026–2027. The teaching & supervision block was removed, so the section and its nav item are now called "Funding".

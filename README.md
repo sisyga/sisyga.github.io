@@ -10,7 +10,7 @@ A one-page academic homepage at https://sisyga.github.io, built by GitHub Pages 
 | Talks (newest four shown, the rest under "More talks") | `_data/talks.yml` |
 | News (newest four shown below the intro, the rest under "Earlier news") | `_data/news.yml` |
 | "Last updated" date in the footer | `_data/site.yml` |
-| Intro, news, funding & teaching, software, about, contact | `_includes/sections/*.html` |
+| Intro, news, funding, software, about, contact | `_includes/sections/*.html` |
 | Page order | `index.html` |
 | Head, footer and scripts shared by all pages | `_layouts/default.html` |
 | Styles | `assets/site.css` |

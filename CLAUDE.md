@@ -16,8 +16,8 @@ One-page academic homepage of Simon Syga (https://sisyga.github.io), built by Gi
 - Summaries of papers must stay faithful to the paper; check claims against the source (the author's Zotero library has the PDFs).
 - American spelling ("tumor", "color"), as in the existing text.
 - Research order: cancer lines first, AI-assisted modeling after them; the site is not centered on AI (Simon, October 2026). Each line shows a one-sentence `summary`; the rest sits under "Read more".
-- Every fact appears once: papers appear only in the research lines (a closing line of Research points to Google Scholar and the CV); awards appear only in News; profile links only in the intro; collaborations only in Contact.
-- Each section has one plain `<h2>` in `.sec-head` (no eyebrow `.label`; the colored-dot label is used only in the intro).
+- Every fact appears once: papers appear only in the research lines (a closing line of Research points to Google Scholar and the CV); awards appear only in News; profile links in the intro and again in Contact (the one deliberate repeat, so they are at hand at the end of the page); collaborations only in Contact.
+- Each section has one plain `<h2>` in `.sec-head`, with no side text next to it and no eyebrow `.label` (the colored-dot label is used only in the intro).
 
 ## Preview
 
