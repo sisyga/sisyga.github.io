@@ -116,3 +116,5 @@ Requested by the user after review of the live page:
 - Funding: FOSTER.AI moved to the top of "Collaborative projects & roles", dated 2026–2027. The teaching & supervision block was removed, so the section and its nav item are now called "Funding".
 - Research line 01, "Now": removed the lung-cancer collaboration, in line with Contact.
 - Contact: removed the collaborations paragraph (misplaced there) and Google Scholar and ORCID from its links, which are now GitHub, Bluesky and LinkedIn.
+- Software: the Morpheus.AI card now describes the agentic workflow (agents turn a published study into a model, run it, inspect the output and revise it, without human intervention); the skill is named as one of its components.
+- Contact: the email, social links and address sit in one card (top row email in the display font, then social links, then the postal address on four lines), vertically centered next to the text. The rule-separated rows and pills were removed.
