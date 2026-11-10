@@ -118,3 +118,16 @@ Requested by the user after review of the live page:
 - Contact: removed the collaborations paragraph (misplaced there) and Google Scholar and ORCID from its links, which are now GitHub, Bluesky and LinkedIn.
 - Software: the Morpheus.AI card now describes the agentic workflow (agents turn a published study into a model, run it, inspect the output and revise it, without human intervention); the skill is named as one of its components.
 - Contact: the email, social links and address sit in one card (top row email in the display font, then social links, then the postal address on four lines), vertically centered next to the text. The rule-separated rows and pills were removed.
+
+# Revision — 10 November 2026
+
+The preprint is public: arXiv:2611.05413, submitted 29 October 2026, CC BY 4.0. This closes the open item of 30 October.
+
+- News: new first item (Nov 2026) linking the preprint. News still shows four items, so the EPJ Special Topics item of February 2026 moved under "Earlier news".
+- Research line 03: the preprint is the first link and the label above the links is "Papers" again (`refs_label: Code` removed). The summary names MorpheusAI. The figure caption links the preprint and states its license. One sentence added to "What we found": a cheaper LLM met 60–73% of the criteria at about a tenth of the cost (preprint results: 0.60–0.73 against 0.83–0.86; mean US$0.32 against US$3.74 per run).
+- Naming: "MorpheusAI" without the dot in the Software card and in Funding (see CLAUDE.md). The public CV still says "Morpheus.AI".
+- Software: the MorpheusAI card gained an internal link "Results and preprint" to research line 03, so the preprint itself is still linked only from the research line and News.
+- The preprint links use `https://arxiv.org/abs/2611.05413`, because arXiv showed the DOI as pending registration on 10 November. Switch to `https://doi.org/10.48550/arXiv.2611.05413` once it resolves, to match line 04.
+- Footer date: November 2026.
+
+Checked: built with Jekyll 3.10 and rendered at 1440 × 900 and 390 × 844 in both themes; no horizontal overflow, no script errors. External links could not be opened from the build machine, except the arXiv page.

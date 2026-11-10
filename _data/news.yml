@@ -2,6 +2,8 @@
 # `when` is a short label (month and year); `text` may contain links.
 # Quote `text` if it contains a colon followed by a space.
 
+- when: Nov 2026
+  text: 'New preprint: <a href="https://arxiv.org/abs/2611.05413">MorpheusAI</a>, in which LLM agents build, run and refine virtual tissue models from published studies without human intervention. With Prerana Chandratre, Lutz Brusch and colleagues at CIDS.'
 - when: Jul 2026
   text: Reinhart Heinrich Award keynote at <a href="https://ecmtb2026.org/programme">ECMTB 2026</a> in Graz, where I also co-organized a minisymposium on spatial plasticity and heterogeneity in cancer.
 - when: Jul 2026

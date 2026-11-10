@@ -71,9 +71,9 @@
   label: 03 · AI-assisted modeling
   title: LLM agents that build tissue models from the literature
   summary: >-
-    LLM agents paired with the simulator Morpheus built virtual tissue models from 15 published
-    studies without human help, and met 83–86% of study-specific criteria when they could run their
-    own simulations, against 55% when they could not.
+    In MorpheusAI, LLM agents paired with the simulator Morpheus built virtual tissue models from
+    15 published studies without human help, and met 83–86% of study-specific criteria when they
+    could run their own simulations, against 55% when they could not.
   figure:
     src: assets/figures/morpheus-ai-2026.webp
     width: 849
@@ -84,7 +84,8 @@
       and oocyte cells filling a U-shaped gonad over time.
     caption: >-
       The agent’s modeling loop, and the <i>C. elegans</i> germ-line model it built from a published
-      study, 18.5 to 39.4 hours after hatching. From Chandratre et al., preprint 2026.
+      study, 18.5 to 39.4 hours after hatching. From
+      <a href="https://arxiv.org/abs/2611.05413">Chandratre et al., arXiv 2026</a> (CC BY 4.0).
   question: >-
     Building a virtual tissue model takes expertise in biology, mathematics and programming. Can an
     LLM agent turn a published study into a working simulation on its own, and what does it need to
@@ -94,12 +95,13 @@
     15 studies, five of which report experiments but no model. With a frontier LLM, the agents that
     ran their simulations needed under two hours and under US$4 per model, and their models for
     studies without a published model scored about as high as their re-implementations of published
-    ones.
+    ones. A cheaper LLM met 60–73% of the criteria at about a tenth of the cost.
   now: >-
     I initiated the project and co-lead it with Lutz Brusch. The Morpheus skill and the benchmark are
     open source, and I use the skill in my own cancer models.
-  refs_label: Code
   papers:
+    - label: arXiv 2026
+      url: https://arxiv.org/abs/2611.05413
     - label: Morpheus skill
       url: https://github.com/sisyga/morpheus-skills
     - label: Benchmark code
